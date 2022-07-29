@@ -1,0 +1,341 @@
+.ehrm-setup-wizard {
+    text-align: center;
+}
+body.ehrm-setup-wizard.wp-core-ui.wl_custom {
+    margin: 65px auto 24px;
+    box-shadow: none;
+    background: #f1f1f1;
+    padding: 0;
+    padding-left: 32%;
+    padding-right: 32%;
+    background-size: cover;
+    background-image: url(../../assets/images/admin.jpg);
+}
+.ehrm-setup-steps {
+    padding: 0 0 24px;
+    margin: 0;
+    list-style: none outside;
+    overflow: hidden;
+    color: #ccc;
+    width: 100%;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+}
+.wl_ehrm .ehrm-setup-content p.store-setup {
+    margin-top: 0;
+}
+
+.wl_ehrm .ehrm-setup-content p {
+    margin: 20px 0;
+    font-size: 1em;
+    line-height: 1.75;
+    color: #666;
+}
+.ehrm-setup-steps li.active {
+    border-color: #3ab32c;
+    color: #3ab32c;
+    font-weight: 700;
+    margin-top: 22px;
+}
+
+.wl_ehrm input.button.button-small.wp-picker-clear {
+    height: 28px;
+}
+.wl_ehrm .wp-picker-open+.wp-picker-input-wrap {
+    display: inline-flex;
+}
+.wl_ehrm input#designation_color {
+    display: inline-block;
+}
+.wl_ehrm .ehrm-setup-steps li.active::before {
+    border-color: #3ab32c;
+}
+.wl_ehrm .ehrm-setup-wizard .wp-picker-input-wrap label {
+    margin-top: 0px;
+    display: inline;
+    margin-left: 10px;
+}
+.wl_ehrm p.store-setup {
+    text-align: center;
+    font-size: 20px!important;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #3463ab!important;
+    border: 2px solid;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.ehrm-setup-steps li {
+    width: 100%;
+    float: left;
+    padding: 0 0 .8em;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    border-bottom: 4px solid #ccc;
+    line-height: 1.4;
+    margin-top: 22px;
+}
+.ehrm-setup-steps li.active::before {
+    border-color: #3ab32c;
+}
+.ehrm-setup-steps li::before {
+    content: "";
+    border: 4px solid #ccc;
+    border-radius: 100%;
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -6px;
+    margin-bottom: -8px;
+    background: #fff;
+    box-sizing: unset;
+}
+.ehrm-setup-content {
+    box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    padding: 2em;
+    margin: 0 0 20px;
+    background: #fff;
+    overflow: hidden;
+    zoom: 1;
+    text-align: left;
+    border-radius: 8px;
+}
+
+.wl_ehrm .ehrm-setup-content p.store-setup {
+    margin-top: 0;
+}
+
+.wl_ehrm .ehrm-setup-content p {
+    margin: 20px 0;
+    font-size: 1em;
+    line-height: 1.75;
+    color: #666;
+}
+
+.wl_ehrm .ehrm-setup-content label {
+    color: #0c0c0ca3;
+    font-size: 16px;
+    margin-bottom: .5em;
+    margin-top: .85em;
+    display: inline-block;
+    font-weight: 600;
+}
+.ehrm-setup-wizard .form-body {
+    margin-bottom: 2%;
+}
+.location-input.dropdown {
+    width: 100%;
+}
+.ehrm-setup-wizard .wp-picker-input-wrap label {
+    margin-top: 0px;
+    display: inline;
+}
+.ehrm-setup-wizard .wp-picker-container input[type=text].wp-color-picker {
+    width: 40%;
+    padding: 4px 7px;
+    margin-left: 7px;
+}
+.wl_ehrm .location-input {
+    border: 1px solid #aaa;
+    border-color: #ddd;
+    border-radius: 4px;
+    height: 30px;
+    width: calc(105% - 8px - 24px - 2px);
+    padding-left: 8px;
+    padding-right: 24px;
+    font-size: 16px;
+    color: #444;
+    background-color: #fff;
+    display: inline-block;
+}
+.wl_ehrm .select2-hidden-accessible {
+    border: 0!important;
+    clip: rect(0 0 0 0)!important;
+    height: 1px!important;
+    margin: -1px!important;
+    overflow: hidden!important;
+    padding: 0!important;
+    position: absolute!important;
+    width: 1px!important;
+}
+.wl_ehrm .ehrm-setup-content p:last-child {
+    margin-bottom: 0;
+}
+.wl_ehrm .ehrm-setup-actions {
+    overflow: hidden;
+    margin: 20px 0 0;
+    position: relative;
+}
+.wl_ehrm .ehrm-setup-content p {
+    margin: 20px 0;
+    font-size: 1em;
+    line-height: 1.75;
+    color: #666;
+}
+.wl_ehrm .step {
+    text-align: center;
+}
+.wl_ehrm .ehrm-setup-actions .button-primary {
+    background: linear-gradient(to right, #84d9d2, #07cdae);
+    box-shadow: 0px 3px 8.3px 0.7px rgba(173, 119, 243, 0.25);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 36px;
+    text-shadow: none;
+    margin: 0;
+    font-size: 20px;
+    opacity: 1;
+    color: #fff;
+    cursor: pointer;
+}
+.wl_ehrm .bootstrap-timepicker-widget table td input {
+    width: 36px;
+    margin: 0;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px 4px;
+}
+.wl_ehrm .designation-step button.button.wp-color-result {
+    border: 0;
+}
+.wl_ehrm .designation-step span.wp-color-result-text {
+    margin: 1px;
+}
+.wl_ehrm input[type="text"], input[type="number"], select#ehrm_timezone, textarea {
+    padding: 8px 26px;
+    border: 1px solid #ccccccb3;
+    /* box-shadow: 1px 1px 5px #9f9a9a99; */
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 10px 45px 0px rgba(30,37,54,0.18);
+    border-radius: 6px;
+    box-shadow: 0 0 0 transparent;
+    border-radius: 4px;
+    border: 1px solid #7e8993;
+    background-color: #fff;
+    color: #32373c;
+    outline: none;
+}
+.wl_ehrm h4.card-title.week_days {
+    text-align: center;
+    color: #4177c1;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: 2px solid;
+    padding: 9px;
+    border-radius: 8px;
+    margin-top: 25px;
+}
+.wl_ehrm .btn-success {
+    background-color: #00c851!important;
+    color: #fff!important;
+}
+.wl_ehrm .btn-danger {
+    background-color: #ff3547!important;
+    color: #fff!important;
+}
+.wl_ehrm li.done a {
+    color: rgb(58, 179, 44)!important;
+}
+.wl_ehrm .ehrm-setup-steps li.done {
+    border-bottom: 4px solid rgb(58, 179, 44);
+    margin-top: 22px;
+}
+.wl_ehrm .ehrm-setup-steps li.done::before {
+    border: 4px solid #3ab32c;
+}
+.wl_ehrm .ehrm-setup-wizard .logo img {
+    width: 55%;
+    height: auto;
+    margin-bottom: 2%;
+}
+.wl_ehrm a.ehrm-setup-footer-links {
+    color: #fff;
+    border: 2px solid;
+    padding: 10px 19px;
+    border-radius: 7px;
+    font-weight: 600;
+    font-size: 18px;
+}
+.wl_ehrm a.ehrm-setup-footer-links:hover {
+    color:red;
+    text-decoration: none;
+}
+.wl_ehrm .ehrm-setup-content .top_head img.logo {
+    width: 200px;
+}
+.wl_ehrm h3.license-message {
+    font-size: 16px;
+}
+.wl_ehrm h3.license-message.success {
+    color: #24bd24;
+    font-size: 20px;
+    font-weight: 600;
+}
+.wl_ehrm h3.license-message.danger {
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
+}
+.wl_ehrm input#license_key {
+    color: #24bd24;
+    border: 1px solid;
+    background: #0080001a;
+}
+.wl_ehrm h2.success-congrates {
+    font-size: 24px;
+    margin-top: 21px;
+    color: #2f569b;
+}
+.wl_ehrm a.conf_btn.licensi_next_btn {
+    background: linear-gradient(to right, #84d9d2, #07cdae);
+    box-shadow: 0px 3px 8.3px 0.7px rgba(173, 119, 243, 0.25);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 36px;
+    text-shadow: none;
+    margin: 0;
+    font-size: 20px;
+    opacity: 1;
+    color: #fff;
+    cursor: pointer;
+}
+.wl_ehrm .btn-gradient-primary {
+    background: linear-gradient(to right, #da8cff, #9a55ff);
+    border: 0;
+    -webkit-transition: opacity 0.3s ease;
+    -moz-transition: opacity 0.3s ease;
+    -ms-transition: opacity 0.3s ease;
+    -o-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+.wl_ehrm .btn {
+    box-shadow: 0px 3px 8.3px 0.7px rgba(163, 93, 255, 0.35);
+}
+.wl_ehrm .btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.wl_ehrm .btn-gradient-primary:not(.btn-gradient-light) {
+    color: #ffffff;
+    border: none;
+}
+.wl_ehrm select.form-control:not([size]):not([multiple]) {
+    max-width: 100%;
+    box-shadow: 0 0 0 transparent;
+    border-radius: 4px;
+    border: 1px solid #7e8993;
+    background-color: #fff;
+    color: #32373c;
+    outline: none;
+}
+.wl_ehrm button.btn.btn-gradient-primary {
+    padding: 8px 18px;
+    font-size: 17px;
+}
+.ehrm-setup-wizard input.department_name {
+    margin-bottom: 7px;
+}

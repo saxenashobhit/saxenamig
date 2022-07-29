@@ -1,0 +1,2162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-05 16:02+0530\n"
+"PO-Revision-Date: 2019-08-05 16:02+0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Eazy Po 0.9.5.3\n"
+
+#: admin/WL_EHRM_MENU.php:11 admin/WL_EHRM_MENU.php:18
+msgid "Employee & HR Management"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:18 admin/WL_EHRM_MENU.php:145
+#: admin/inc/wl_ehrm_dashboard.php:16
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:16
+msgid "Dashboard"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:25 admin/inc/administrator/wl_ehrm_staff.php:40
+#: admin/inc/administrator/wl_ehrm_staff.php:101
+msgid "Designation"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:32 admin/inc/administrator/wl_ehrm_requests.php:14
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:14
+msgid "Leave Requests"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:39 admin/inc/wl_ehrm_dashboard.php:59
+#: admin/inc/administrator/wl_ehrm_shift.php:14
+#: admin/inc/administrator/wl_ehrm_shift.php:30
+msgid "Shifts"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:46
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:139
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:590
+msgid "Staff"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:53 admin/WL_EHRM_MENU.php:152
+#: admin/inc/administrator/wl_ehrm_reports.php:15
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:15
+msgid "Reports"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:60
+msgid "Payroll"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:67 admin/inc/administrator/wl_ehrm_event.php:14
+#: admin/inc/administrator/wl_ehrm_event.php:45
+msgid "Events"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:74 admin/inc/administrator/wl_ehrm_notice.php:14
+#: admin/inc/subscriber/wl_ehrm_staff_notices.php:14
+msgid "Notices"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:81 admin/WL_EHRM_MENU.php:167
+#: admin/inc/administrator/wl_ehrm_holiday.php:14
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:14
+msgid "Holidays"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:88 admin/inc/wl_ehrm_settings.php:42
+msgid "Settings"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:130
+msgid "Unauthorized"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:159
+#: admin/inc/administrator/wl_ehrm_designation.php:110
+#: admin/inc/administrator/wl_ehrm_requests.php:32
+#: admin/inc/administrator/wl_ehrm_requests.php:89
+#: admin/inc/administrator/wl_ehrm_staff.php:41
+#: admin/inc/administrator/wl_ehrm_staff.php:102
+#: admin/inc/administrator/wl_ehrm_staff.php:188
+#: admin/inc/administrator/wl_ehrm_staff.php:285
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:41
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:98
+msgid "Leaves"
+msgstr ""
+
+#: admin/WL_EHRM_MENU.php:176 admin/inc/administrator/wl_ehrm_notice.php:31
+#: admin/inc/subscriber/wl_ehrm_staff_notices.php:22
+msgid "Notice"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:21 admin/inc/wl_ehrm_settings.php:47
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:21
+msgid "Overview"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:48
+msgid "Pending Requests"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:70
+#: admin/inc/administrator/wl_ehrm_shift.php:39
+#: admin/inc/administrator/wl_ehrm_shift.php:86
+#: admin/inc/administrator/wl_ehrm_staff.php:16
+#: admin/inc/administrator/wl_ehrm_staff.php:32
+msgid "Staffs"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:82
+msgid "Staff's Live Status"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:87 admin/inc/wl_ehrm_dashboard.php:149
+#: admin/inc/administrator/wl_ehrm_designation.php:39
+#: admin/inc/administrator/wl_ehrm_designation.php:85
+#: admin/inc/administrator/wl_ehrm_event.php:49
+#: admin/inc/administrator/wl_ehrm_event.php:96
+#: admin/inc/administrator/wl_ehrm_holiday.php:50
+#: admin/inc/administrator/wl_ehrm_holiday.php:103
+#: admin/inc/administrator/wl_ehrm_notice.php:35
+#: admin/inc/administrator/wl_ehrm_notice.php:88
+#: admin/inc/administrator/wl_ehrm_payroll.php:42
+#: admin/inc/administrator/wl_ehrm_payroll.php:59
+#: admin/inc/administrator/wl_ehrm_requests.php:26
+#: admin/inc/administrator/wl_ehrm_requests.php:83
+#: admin/inc/administrator/wl_ehrm_shift.php:34
+#: admin/inc/administrator/wl_ehrm_shift.php:81
+#: admin/inc/administrator/wl_ehrm_staff.php:36
+#: admin/inc/administrator/wl_ehrm_staff.php:97
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:26
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:65
+#: admin/inc/subscriber/wl_ehrm_staff_notices.php:26
+#: admin/inc/subscriber/wl_ehrm_staff_notices.php:63
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:35
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:92
+msgid "No."
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:88 admin/inc/wl_ehrm_dashboard.php:150
+#: admin/inc/wl_ehrm_dashboard.php:223
+#: admin/inc/administrator/wl_ehrm_designation.php:40
+#: admin/inc/administrator/wl_ehrm_designation.php:86
+#: admin/inc/administrator/wl_ehrm_designation.php:112
+#: admin/inc/administrator/wl_ehrm_event.php:50
+#: admin/inc/administrator/wl_ehrm_event.php:97
+#: admin/inc/administrator/wl_ehrm_event.php:150
+#: admin/inc/administrator/wl_ehrm_event.php:190
+#: admin/inc/administrator/wl_ehrm_holiday.php:51
+#: admin/inc/administrator/wl_ehrm_holiday.php:104
+#: admin/inc/administrator/wl_ehrm_holiday.php:156
+#: admin/inc/administrator/wl_ehrm_holiday.php:192
+#: admin/inc/administrator/wl_ehrm_notice.php:114
+#: admin/inc/administrator/wl_ehrm_notice.php:146
+#: admin/inc/administrator/wl_ehrm_reports.php:76
+#: admin/inc/administrator/wl_ehrm_reports.php:100
+#: admin/inc/administrator/wl_ehrm_reports.php:154
+#: admin/inc/administrator/wl_ehrm_reports.php:158
+#: admin/inc/administrator/wl_ehrm_requests.php:111
+#: admin/inc/administrator/wl_ehrm_shift.php:35
+#: admin/inc/administrator/wl_ehrm_shift.php:82
+#: admin/inc/administrator/wl_ehrm_shift.php:109
+#: admin/inc/administrator/wl_ehrm_shift.php:149
+#: admin/inc/administrator/wl_ehrm_staff.php:37
+#: admin/inc/administrator/wl_ehrm_staff.php:98
+#: admin/inc/administrator/wl_ehrm_staff.php:190
+#: admin/inc/administrator/wl_ehrm_staff.php:287
+#: admin/inc/helpers/wl-ehrm-helper.php:1801
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:210
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:27
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:66
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:65
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:89
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:120
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:155
+msgid "Name"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:89 admin/inc/wl_ehrm_dashboard.php:151
+#: admin/inc/administrator/wl_ehrm_reports.php:78
+#: admin/inc/administrator/wl_ehrm_reports.php:102
+#: admin/inc/helpers/wl-ehrm-helper.php:703
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:67
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:91
+msgid "Office In"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:90 admin/inc/wl_ehrm_dashboard.php:152
+#: admin/inc/administrator/wl_ehrm_reports.php:79
+#: admin/inc/administrator/wl_ehrm_reports.php:103
+#: admin/inc/helpers/wl-ehrm-helper.php:714
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:68
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:92
+msgid "Office Out"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:91 admin/inc/wl_ehrm_dashboard.php:153
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:80
+#: admin/inc/helpers/wl-ehrm-helper.php:728
+msgid "Lunch In"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:92 admin/inc/wl_ehrm_dashboard.php:154
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:84
+#: admin/inc/helpers/wl-ehrm-helper.php:722
+msgid "Lunch Out"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:93 admin/inc/wl_ehrm_dashboard.php:155
+msgid "Working Hour's"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:94 admin/inc/wl_ehrm_dashboard.php:156
+msgid "Puntuality"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:95 admin/inc/wl_ehrm_dashboard.php:157
+msgid "IP Address"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:96 admin/inc/wl_ehrm_dashboard.php:158
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:98
+msgid "Location"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:97 admin/inc/wl_ehrm_dashboard.php:159
+#: admin/inc/administrator/wl_ehrm_designation.php:43
+#: admin/inc/administrator/wl_ehrm_designation.php:89
+#: admin/inc/administrator/wl_ehrm_designation.php:170
+#: admin/inc/administrator/wl_ehrm_designation.php:213
+#: admin/inc/administrator/wl_ehrm_event.php:54
+#: admin/inc/administrator/wl_ehrm_event.php:101
+#: admin/inc/administrator/wl_ehrm_event.php:165
+#: admin/inc/administrator/wl_ehrm_event.php:205
+#: admin/inc/administrator/wl_ehrm_holiday.php:54
+#: admin/inc/administrator/wl_ehrm_holiday.php:107
+#: admin/inc/administrator/wl_ehrm_holiday.php:167
+#: admin/inc/administrator/wl_ehrm_holiday.php:203
+#: admin/inc/administrator/wl_ehrm_notice.php:39
+#: admin/inc/administrator/wl_ehrm_notice.php:92
+#: admin/inc/administrator/wl_ehrm_notice.php:121
+#: admin/inc/administrator/wl_ehrm_notice.php:153
+#: admin/inc/administrator/wl_ehrm_requests.php:33
+#: admin/inc/administrator/wl_ehrm_requests.php:90
+#: admin/inc/administrator/wl_ehrm_requests.php:126
+#: admin/inc/administrator/wl_ehrm_shift.php:40
+#: admin/inc/administrator/wl_ehrm_shift.php:87
+#: admin/inc/administrator/wl_ehrm_shift.php:124
+#: admin/inc/administrator/wl_ehrm_shift.php:164
+#: admin/inc/administrator/wl_ehrm_staff.php:43
+#: admin/inc/administrator/wl_ehrm_staff.php:104
+#: admin/inc/administrator/wl_ehrm_staff.php:198
+#: admin/inc/administrator/wl_ehrm_staff.php:295
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:30
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:69
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:42
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:99
+msgid "Status"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:98 admin/inc/wl_ehrm_dashboard.php:160
+#: admin/inc/administrator/wl_ehrm_designation.php:44
+#: admin/inc/administrator/wl_ehrm_designation.php:90
+#: admin/inc/administrator/wl_ehrm_event.php:55
+#: admin/inc/administrator/wl_ehrm_event.php:102
+#: admin/inc/administrator/wl_ehrm_holiday.php:55
+#: admin/inc/administrator/wl_ehrm_holiday.php:108
+#: admin/inc/administrator/wl_ehrm_notice.php:40
+#: admin/inc/administrator/wl_ehrm_notice.php:93
+#: admin/inc/administrator/wl_ehrm_requests.php:34
+#: admin/inc/administrator/wl_ehrm_requests.php:91
+#: admin/inc/administrator/wl_ehrm_shift.php:41
+#: admin/inc/administrator/wl_ehrm_shift.php:88
+#: admin/inc/administrator/wl_ehrm_staff.php:44
+#: admin/inc/administrator/wl_ehrm_staff.php:105
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:43
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:100
+msgid "Action"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:128
+msgid "Login"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:134
+msgid "Logout"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:143
+#: admin/inc/administrator/wl_ehrm_staff.php:91
+msgid "No Staff added yet.!"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:178
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:165
+msgid "Notice's"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:183 admin/inc/wl_ehrm_dashboard.php:203
+#: admin/inc/administrator/wl_ehrm_notice.php:36
+#: admin/inc/administrator/wl_ehrm_notice.php:89
+#: admin/inc/administrator/wl_ehrm_requests.php:27
+#: admin/inc/administrator/wl_ehrm_requests.php:84
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:170
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:190
+#: admin/inc/subscriber/wl_ehrm_staff_notices.php:27
+#: admin/inc/subscriber/wl_ehrm_staff_notices.php:64
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:36
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:93
+msgid "Title"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:184
+#: admin/inc/administrator/wl_ehrm_event.php:51
+#: admin/inc/administrator/wl_ehrm_event.php:98
+#: admin/inc/administrator/wl_ehrm_notice.php:38
+#: admin/inc/administrator/wl_ehrm_notice.php:91
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:171
+#: admin/inc/subscriber/wl_ehrm_staff_notices.php:28
+#: admin/inc/subscriber/wl_ehrm_staff_notices.php:65
+msgid "Description"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:198
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:185
+msgid "Upcoming Event's"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:204 admin/inc/wl_ehrm_dashboard.php:224
+#: admin/inc/administrator/wl_ehrm_event.php:52
+#: admin/inc/administrator/wl_ehrm_event.php:99
+#: admin/inc/administrator/wl_ehrm_notice.php:37
+#: admin/inc/administrator/wl_ehrm_notice.php:90
+#: admin/inc/administrator/wl_ehrm_reports.php:75
+#: admin/inc/administrator/wl_ehrm_reports.php:99
+#: admin/inc/administrator/wl_ehrm_reports.php:157
+#: admin/inc/administrator/wl_ehrm_requests.php:30
+#: admin/inc/administrator/wl_ehrm_requests.php:87
+#: admin/inc/helpers/wl-ehrm-helper.php:1829
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:191
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:211
+#: admin/inc/subscriber/wl_ehrm_staff_notices.php:29
+#: admin/inc/subscriber/wl_ehrm_staff_notices.php:66
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:64
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:88
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:39
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:96
+msgid "Date"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:218
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:205
+msgid "Upcoming Holiday's"
+msgstr ""
+
+#: admin/inc/wl_ehrm_dashboard.php:225
+#: admin/inc/administrator/wl_ehrm_holiday.php:53
+#: admin/inc/administrator/wl_ehrm_holiday.php:106
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:294
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:302
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:306
+#: admin/inc/helpers/wl-ehrm-helper.php:678
+#: admin/inc/helpers/wl-ehrm-helper.php:1064
+#: admin/inc/helpers/wl-ehrm-helper.php:1469
+#: admin/inc/helpers/wl-ehrm-helper.php:1596
+#: admin/inc/helpers/wl-ehrm-helper.php:1600
+#: admin/inc/helpers/wl-ehrm-helper.php:1604
+#: admin/inc/helpers/wl-ehrm-helper.php:1608
+#: admin/inc/helpers/wl-ehrm-helper.php:1621
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:212
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:29
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:68
+msgid "Days"
+msgstr ""
+
+#: admin/inc/wl_ehrm_default_options.php:43 admin/inc/wl_ehrm_settings.php:30
+#: admin/inc/controllers/wl-ehrm-settings.php:34
+msgid "Login Alert From Employee & HR Management"
+msgstr ""
+
+#: admin/inc/wl_ehrm_default_options.php:44 admin/inc/wl_ehrm_settings.php:31
+#: admin/inc/controllers/wl-ehrm-settings.php:35
+msgid "Logout Alert From Employee & HR Management"
+msgstr ""
+
+#: admin/inc/wl_ehrm_default_options.php:45 admin/inc/wl_ehrm_settings.php:32
+#: admin/inc/controllers/wl-ehrm-settings.php:36
+msgid "Staff Login/Logout Details"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:59
+msgid "General settings"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:67
+msgid "TimeZone"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:70
+msgid ""
+"----------------------------------------------------------Select "
+"timezone----------------------------------------------------------"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:80
+msgid "Date Format"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:97
+msgid "Time Format"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:110
+msgid "Select Halfday Days, If any."
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:122
+msgid "Monday"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:132
+msgid "Thursday"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:144
+msgid "Tuesday"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:150
+msgid "Friday"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:158
+msgid "Wednesday"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:168
+msgid "Saturday"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:179
+msgid "Halfday Start Time"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:181
+#: admin/inc/administrator/wl_ehrm_reports.php:162
+#: admin/inc/administrator/wl_ehrm_reports.php:166
+#: admin/inc/administrator/wl_ehrm_reports.php:170
+#: admin/inc/administrator/wl_ehrm_reports.php:174
+#: admin/inc/administrator/wl_ehrm_shift.php:113
+#: admin/inc/administrator/wl_ehrm_shift.php:153
+msgid "Format:- 10:00 AM"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:187
+msgid "Halfday End Time"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:189
+msgid "Format:- 03:00 PM"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:197
+msgid "Lunch Start Time"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:199
+msgid "Format:- 02:00 PM"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:205
+msgid "Lunch End Time"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:207
+msgid "Format:- 02:30 PM"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:215
+msgid "Currency Symbol"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:223
+msgid "Currency Position"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:226
+msgid "Right"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:227
+msgid "Left"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:236
+#: admin/inc/administrator/wl_ehrm_payroll.php:49
+#: admin/inc/administrator/wl_ehrm_payroll.php:66
+msgid "Salary paid by"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:241
+msgid "Monthly"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:249
+msgid "Hourly"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:257
+msgid "Include/Exclude Lunch time from Working Hours"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:262
+msgid "Include"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:270
+msgid "Exclude"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:280
+msgid "Select yes if you wanna use IP Restriction"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:285 admin/inc/wl_ehrm_settings.php:360
+#: admin/inc/wl_ehrm_settings.php:381 admin/inc/wl_ehrm_settings.php:404
+#: admin/inc/wl_ehrm_settings.php:425 admin/inc/wl_ehrm_settings.php:448
+#: admin/inc/wl_ehrm_settings.php:519
+msgid "Yes"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:293 admin/inc/wl_ehrm_settings.php:368
+#: admin/inc/wl_ehrm_settings.php:389 admin/inc/wl_ehrm_settings.php:412
+#: admin/inc/wl_ehrm_settings.php:433 admin/inc/wl_ehrm_settings.php:456
+#: admin/inc/wl_ehrm_settings.php:527
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:139
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:590
+msgid "No"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:301
+msgid "IP Match"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:306
+msgid "Exact Match"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:314
+msgid "Range(  2 Digits )"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:322
+msgid "Range(  3 Digits )"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:332
+msgid "Restrict IP"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:334
+#: admin/inc/administrator/wl_ehrm_reports.php:81
+#: admin/inc/administrator/wl_ehrm_reports.php:105
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:70
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:94
+msgid "IP"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:338
+msgid "Get Your IP"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:343
+#: admin/inc/administrator/wl_ehrm_designation.php:116
+#: admin/inc/administrator/wl_ehrm_staff.php:195
+#: admin/inc/administrator/wl_ehrm_staff.php:292
+msgid "Remove"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:351
+msgid "Staff's settings"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:355
+msgid "Show Holidays"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:376
+msgid "Enable Report Submission"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:399
+msgid "Show Notice"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:420
+msgid "Enable Late Reason Submission"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:443
+msgid "Show Salary Status"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:466
+msgid "Select roles for staff's."
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:477
+msgid "Subscriber"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:483
+msgid "Contributor"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:491
+msgid "Author"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:497
+msgid "Editor"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:503
+msgid "Staff's login dashboard shows only for selected user roles."
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:510
+msgid "Email Settings"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:514
+msgid "Shoot Mail when user Login/Logout"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:536
+msgid "Your logo for mail"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:543
+msgid "Upload"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:552
+msgid "Notification Mail Subject ( Office in )"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:560
+msgid "Notification Mail Subject ( Office out )"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:570
+msgid "Heading for mail content"
+msgstr ""
+
+#: admin/inc/wl_ehrm_settings.php:578
+msgid "Save Changes"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:15
+#: admin/inc/administrator/wl_ehrm_designation.php:35
+msgid "Designations"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:21
+msgid "Add Department"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:25
+msgid "Add Designation"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:41
+#: admin/inc/administrator/wl_ehrm_designation.php:87
+#: admin/inc/administrator/wl_ehrm_designation.php:151
+#: admin/inc/administrator/wl_ehrm_designation.php:194
+msgid "Department"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:42
+#: admin/inc/administrator/wl_ehrm_designation.php:88
+msgid "Color"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:79
+msgid "No Designations added yet.!"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:106
+msgid "Manage Departments"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:115
+#: admin/inc/administrator/wl_ehrm_staff.php:194
+#: admin/inc/administrator/wl_ehrm_staff.php:291
+msgid "Add More"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:128
+msgid "No Department found.!"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:132
+#: admin/inc/administrator/wl_ehrm_designation.php:176
+#: admin/inc/administrator/wl_ehrm_designation.php:220
+#: admin/inc/administrator/wl_ehrm_event.php:171
+#: admin/inc/administrator/wl_ehrm_event.php:212
+#: admin/inc/administrator/wl_ehrm_holiday.php:173
+#: admin/inc/administrator/wl_ehrm_holiday.php:210
+#: admin/inc/administrator/wl_ehrm_notice.php:127
+#: admin/inc/administrator/wl_ehrm_notice.php:160
+#: admin/inc/administrator/wl_ehrm_reports.php:197
+#: admin/inc/administrator/wl_ehrm_requests.php:136
+#: admin/inc/administrator/wl_ehrm_shift.php:130
+#: admin/inc/administrator/wl_ehrm_shift.php:171
+#: admin/inc/administrator/wl_ehrm_staff.php:204
+#: admin/inc/administrator/wl_ehrm_staff.php:302
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:126
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:147
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:137
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:173
+#: public/inc/controllers/wl_ehrm_login_portal.php:100
+#: public/inc/controllers/wl_ehrm_login_portal.php:121
+msgid "Submit"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:148
+#: admin/inc/administrator/wl_ehrm_designation.php:191
+msgid "Designation Details"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:153
+#: admin/inc/administrator/wl_ehrm_designation.php:196
+msgid "Select Department"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:162
+#: admin/inc/administrator/wl_ehrm_designation.php:205
+msgid "Designation Name"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:163
+#: admin/inc/administrator/wl_ehrm_designation.php:206
+msgid "Designation Type"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:166
+#: admin/inc/administrator/wl_ehrm_designation.php:209
+msgid "Designation Color"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:172
+#: admin/inc/administrator/wl_ehrm_designation.php:215
+#: admin/inc/administrator/wl_ehrm_event.php:167
+#: admin/inc/administrator/wl_ehrm_event.php:207
+#: admin/inc/administrator/wl_ehrm_holiday.php:169
+#: admin/inc/administrator/wl_ehrm_holiday.php:205
+#: admin/inc/administrator/wl_ehrm_notice.php:123
+#: admin/inc/administrator/wl_ehrm_notice.php:155
+#: admin/inc/administrator/wl_ehrm_shift.php:126
+#: admin/inc/administrator/wl_ehrm_shift.php:166
+#: admin/inc/administrator/wl_ehrm_staff.php:200
+#: admin/inc/administrator/wl_ehrm_staff.php:297
+msgid "Active"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_designation.php:173
+#: admin/inc/administrator/wl_ehrm_designation.php:216
+#: admin/inc/administrator/wl_ehrm_event.php:168
+#: admin/inc/administrator/wl_ehrm_event.php:208
+#: admin/inc/administrator/wl_ehrm_holiday.php:170
+#: admin/inc/administrator/wl_ehrm_holiday.php:206
+#: admin/inc/administrator/wl_ehrm_notice.php:124
+#: admin/inc/administrator/wl_ehrm_notice.php:156
+#: admin/inc/administrator/wl_ehrm_shift.php:127
+#: admin/inc/administrator/wl_ehrm_shift.php:167
+#: admin/inc/administrator/wl_ehrm_staff.php:201
+#: admin/inc/administrator/wl_ehrm_staff.php:298
+msgid "Inactive"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_event.php:20
+#: admin/inc/administrator/wl_ehrm_event.php:118
+#: admin/inc/administrator/wl_ehrm_event.php:129
+#: admin/inc/administrator/wl_ehrm_holiday.php:20
+#: admin/inc/administrator/wl_ehrm_holiday.php:124
+#: admin/inc/administrator/wl_ehrm_holiday.php:135
+msgid "Import"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_event.php:28
+#: admin/inc/administrator/wl_ehrm_holiday.php:28
+msgid "Export"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_event.php:35
+msgid "Add Events"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_event.php:53
+#: admin/inc/administrator/wl_ehrm_event.php:100
+msgid "Time"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_event.php:90
+msgid "No Events added yet.!"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_event.php:146
+#: admin/inc/administrator/wl_ehrm_event.php:186
+msgid "Event Details"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_event.php:149
+#: admin/inc/administrator/wl_ehrm_event.php:189
+msgid "Event Name"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_event.php:153
+#: admin/inc/administrator/wl_ehrm_event.php:193
+msgid "Event Description"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_event.php:154
+#: admin/inc/administrator/wl_ehrm_event.php:194
+#: admin/inc/administrator/wl_ehrm_notice.php:118
+#: admin/inc/administrator/wl_ehrm_notice.php:150
+#: admin/inc/administrator/wl_ehrm_reports.php:189
+#: admin/inc/administrator/wl_ehrm_reports.php:193
+#: admin/inc/administrator/wl_ehrm_requests.php:115
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:124
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:159
+msgid "Description...."
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_event.php:157
+#: admin/inc/administrator/wl_ehrm_event.php:197
+msgid "Event Date"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_event.php:161
+#: admin/inc/administrator/wl_ehrm_event.php:201
+msgid "Event Time"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_holiday.php:35
+msgid "Add Holiday"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_holiday.php:46
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:134
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:586
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:22
+msgid "Holiday"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_holiday.php:52
+#: admin/inc/administrator/wl_ehrm_holiday.php:105
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:28
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:67
+msgid "Date(s)"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_holiday.php:97
+#: admin/inc/subscriber/wl_ehrm_staff_holidays.php:59
+msgid "No Holidays added yet.!"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_holiday.php:152
+#: admin/inc/administrator/wl_ehrm_holiday.php:188
+msgid "Holiday Details"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_holiday.php:155
+#: admin/inc/administrator/wl_ehrm_holiday.php:191
+msgid "Holiday Name"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_holiday.php:159
+#: admin/inc/administrator/wl_ehrm_holiday.php:195
+#: admin/inc/administrator/wl_ehrm_requests.php:118
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:127
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:162
+msgid "Holiday From"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_holiday.php:163
+#: admin/inc/administrator/wl_ehrm_holiday.php:199
+#: admin/inc/administrator/wl_ehrm_requests.php:122
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:131
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:166
+msgid "Holiday To"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_notice.php:20
+msgid "Add Notice"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_notice.php:82
+#: admin/inc/subscriber/wl_ehrm_staff_notices.php:57
+msgid "No notices added yet.!"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_notice.php:110
+#: admin/inc/administrator/wl_ehrm_notice.php:142
+msgid "Notice Details"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_notice.php:113
+#: admin/inc/administrator/wl_ehrm_notice.php:145
+msgid "Notice Title"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_notice.php:117
+#: admin/inc/administrator/wl_ehrm_notice.php:149
+msgid "Notice Description"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:13
+msgid "Pay Roll"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:19
+msgid "Select starting date"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:22
+msgid "Select last date"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:26
+msgid "Generate"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:38
+msgid "Salary pay roll"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:43
+#: admin/inc/administrator/wl_ehrm_payroll.php:60
+#: admin/inc/administrator/wl_ehrm_reports.php:153
+#: admin/inc/administrator/wl_ehrm_requests.php:28
+#: admin/inc/administrator/wl_ehrm_requests.php:85
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:37
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:94
+msgid "Staff Name"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:44
+#: admin/inc/administrator/wl_ehrm_payroll.php:61
+msgid "Month"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:45
+#: admin/inc/administrator/wl_ehrm_payroll.php:62
+msgid "Working days"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:46
+#: admin/inc/administrator/wl_ehrm_payroll.php:63
+msgid "Total Present days"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:47
+#: admin/inc/administrator/wl_ehrm_payroll.php:64
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:301
+msgid "Total absent days"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:48
+#: admin/inc/administrator/wl_ehrm_payroll.php:65
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:343
+msgid "Total working hours"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:50
+#: admin/inc/administrator/wl_ehrm_payroll.php:67
+msgid "Staff salary"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:51
+#: admin/inc/administrator/wl_ehrm_payroll.php:68
+#: admin/inc/helpers/wl-ehrm-helper.php:1512
+msgid "Calculated salary"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_payroll.php:75
+msgid "Total salary you have to pay :-"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:22
+msgid "Select Staff member"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:36
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:29
+msgid "Previous Three Month"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:37
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:30
+msgid "Previous Six Month"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:38
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:31
+msgid "Previous Nine Month"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:39
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:32
+msgid "Previous One Year"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:45
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:38
+msgid "All Days"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:46
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:39
+msgid "Only Attend days"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:47
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:40
+msgid "Only Absent Days"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:52
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:45
+msgid "Generate Report"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:66
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:58
+msgid "Expand All"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:69
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:59
+msgid "Collapse All"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:77
+#: admin/inc/administrator/wl_ehrm_reports.php:101
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:66
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:90
+msgid "Day"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:80
+#: admin/inc/administrator/wl_ehrm_reports.php:104
+#: admin/inc/administrator/wl_ehrm_reports.php:184
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:69
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:93
+msgid "Working Hours"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:82
+#: admin/inc/administrator/wl_ehrm_reports.php:106
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:71
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:95
+msgid "Other Details"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:91
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:80
+msgid "No data"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:122
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:110
+msgid "Download report"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:125
+#: admin/inc/controllers/wl-ehrm-pay-roll-action.php:35
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:113
+msgid "From"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:126
+#: admin/inc/administrator/wl_ehrm_reports.php:130
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:114
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:118
+msgid "Select date, Format:- YYYY-MM-DD"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:129
+#: admin/inc/controllers/wl-ehrm-pay-roll-action.php:35
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:117
+msgid "To"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:137
+#: admin/inc/subscriber/wl_ehrm_staff_report.php:125
+msgid "Download"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:150
+msgid "Report Details"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:161
+#: admin/inc/helpers/wl-ehrm-helper.php:1857
+msgid "Office IN"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:165
+#: admin/inc/helpers/wl-ehrm-helper.php:1886
+#: admin/inc/helpers/wl-ehrm-helper.php:2017
+msgid "Office OUT"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:169
+#: admin/inc/helpers/wl-ehrm-helper.php:2027
+msgid "Lunch IN"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:173
+#: admin/inc/helpers/wl-ehrm-helper.php:2023
+msgid "Lunch OUT"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:177
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:88
+msgid "Punctuality"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:179
+msgid "Late"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:180
+msgid "On Time"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:188
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:102
+#: admin/inc/helpers/wl-ehrm-helper.php:2033
+msgid "Late Reason"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_reports.php:192
+msgid "Daily Work Report"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_requests.php:22
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:31
+msgid "Requests"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_requests.php:29
+#: admin/inc/administrator/wl_ehrm_requests.php:86
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:38
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:95
+msgid "Short Description"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_requests.php:31
+#: admin/inc/administrator/wl_ehrm_requests.php:88
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:40
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:97
+msgid "Request For"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_requests.php:77
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:86
+msgid "No Requests added yet.!"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_requests.php:107
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:116
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:151
+msgid "Request Details"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_requests.php:110
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:119
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:154
+msgid "Request Title"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_requests.php:114
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:123
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:158
+msgid "Request Description"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_requests.php:119
+#: admin/inc/administrator/wl_ehrm_requests.php:123
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:128
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:132
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:163
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:167
+msgid "Format:- YYYY-MM-DD"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_requests.php:128
+msgid "Pending"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_requests.php:129
+msgid "Approved"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_requests.php:130
+msgid "Canceled"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_shift.php:20
+msgid "Add Shift"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_shift.php:36
+#: admin/inc/administrator/wl_ehrm_shift.php:83
+msgid "Start time"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_shift.php:37
+#: admin/inc/administrator/wl_ehrm_shift.php:84
+msgid "Ending time"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_shift.php:38
+#: admin/inc/administrator/wl_ehrm_shift.php:85
+msgid "Late time"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_shift.php:75
+msgid "No Shift added yet.!"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_shift.php:105
+#: admin/inc/administrator/wl_ehrm_shift.php:145
+msgid "Shift Details"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_shift.php:108
+#: admin/inc/administrator/wl_ehrm_shift.php:148
+msgid "Shift Name"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_shift.php:112
+#: admin/inc/administrator/wl_ehrm_shift.php:152
+msgid "Starting Time"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_shift.php:116
+#: admin/inc/administrator/wl_ehrm_shift.php:156
+msgid "Ending Time"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_shift.php:117
+#: admin/inc/administrator/wl_ehrm_shift.php:157
+msgid "Format:- 1:39 PM"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_shift.php:120
+#: admin/inc/administrator/wl_ehrm_shift.php:160
+msgid "Late Time"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_shift.php:121
+#: admin/inc/administrator/wl_ehrm_shift.php:161
+msgid "Format:- 10:15 AM"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:22
+msgid "Add Staff"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:38
+#: admin/inc/administrator/wl_ehrm_staff.php:99
+#: admin/inc/administrator/wl_ehrm_staff.php:153
+#: admin/inc/administrator/wl_ehrm_staff.php:154
+#: admin/inc/administrator/wl_ehrm_staff.php:250
+#: admin/inc/administrator/wl_ehrm_staff.php:251
+msgid "Email"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:39
+#: admin/inc/administrator/wl_ehrm_staff.php:100
+msgid "Shift"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:42
+#: admin/inc/administrator/wl_ehrm_staff.php:103
+#: admin/inc/administrator/wl_ehrm_staff.php:184
+#: admin/inc/administrator/wl_ehrm_staff.php:281
+msgid "Salary"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:121
+#: admin/inc/administrator/wl_ehrm_staff.php:219
+msgid "Staff Details"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:124
+#: admin/inc/administrator/wl_ehrm_staff.php:222
+msgid "Select User"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:126
+#: admin/inc/administrator/wl_ehrm_staff.php:224
+msgid "--------Select user---------"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:141
+#: admin/inc/administrator/wl_ehrm_staff.php:238
+msgid "Username"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:142
+#: admin/inc/administrator/wl_ehrm_staff.php:239
+msgid "User Name"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:145
+#: admin/inc/administrator/wl_ehrm_staff.php:146
+#: admin/inc/administrator/wl_ehrm_staff.php:242
+#: admin/inc/administrator/wl_ehrm_staff.php:243
+msgid "First Name"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:149
+#: admin/inc/administrator/wl_ehrm_staff.php:150
+#: admin/inc/administrator/wl_ehrm_staff.php:246
+#: admin/inc/administrator/wl_ehrm_staff.php:247
+msgid "Last Name"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:157
+#: admin/inc/administrator/wl_ehrm_staff.php:254
+msgid "Select Shift"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:159
+#: admin/inc/administrator/wl_ehrm_staff.php:256
+msgid "----------------Select user shift----------------"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:171
+#: admin/inc/administrator/wl_ehrm_staff.php:268
+msgid "Select Designation"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:173
+#: admin/inc/administrator/wl_ehrm_staff.php:270
+msgid "---------Select User Designation---------"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:185
+#: admin/inc/administrator/wl_ehrm_staff.php:282
+msgid "$1000"
+msgstr ""
+
+#: admin/inc/administrator/wl_ehrm_staff.php:191
+#: admin/inc/administrator/wl_ehrm_staff.php:288
+msgid "Value"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-admin-dash-actions.php:62
+msgid "Staff Office In Time is "
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-admin-dash-actions.php:65
+#: admin/inc/controllers/wl-ehrm-admin-dash-actions.php:107
+#: admin/inc/controllers/wl-ehrm-admin-dash-actions.php:112
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:170
+#: admin/inc/controllers/wl-ehrm-events-actions.php:120
+#: admin/inc/controllers/wl-ehrm-events-actions.php:268
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:121
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:271
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:110
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:249
+#: admin/inc/controllers/wl-ehrm-pay-roll-action.php:82
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:149
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:361
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:440
+#: admin/inc/controllers/wl-ehrm-requests-actions.php:87
+#: admin/inc/controllers/wl-ehrm-requests-actions.php:101
+#: admin/inc/controllers/wl-ehrm-requests-actions.php:181
+#: admin/inc/controllers/wl-ehrm-requests-actions.php:237
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:161
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:192
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:219
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:419
+#: admin/inc/controllers/wl-ehrm-staff-dash-actions.php:62
+#: admin/inc/controllers/wl-ehrm-staff-dash-actions.php:85
+#: admin/inc/controllers/wl-ehrm-staff-dash-actions.php:111
+#: admin/inc/controllers/wl-ehrm-staff-dash-actions.php:165
+#: admin/inc/controllers/wl-ehrm-staff-dash-actions.php:170
+#: admin/inc/controllers/wl-ehrm-staff-dash-actions.php:185
+#: admin/inc/controllers/wl-ehrm-staff-dash-actions.php:207
+#: admin/inc/controllers/wl-ehrm-staff-dash-actions.php:231
+#: public/inc/controllers/wl_ehrm_login_actions.php:66
+#: public/inc/controllers/wl_ehrm_login_actions.php:89
+#: public/inc/controllers/wl_ehrm_login_actions.php:115
+#: public/inc/controllers/wl_ehrm_login_actions.php:169
+#: public/inc/controllers/wl_ehrm_login_actions.php:174
+#: public/inc/controllers/wl_ehrm_login_actions.php:189
+#: public/inc/controllers/wl_ehrm_login_actions.php:211
+#: public/inc/controllers/wl_ehrm_login_actions.php:235
+msgid "Something went wrong.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-admin-dash-actions.php:104
+msgid "Staff Office Out Time is "
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-admin-dash-actions.php:116
+msgid "Staff already logged out.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:31
+msgid "Department added successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:36
+msgid "Department not added!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:43
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:130
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:240
+msgid "Please select Deparment.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:45
+msgid "PSomething went wrong.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:118
+msgid "Designation added successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:123
+msgid "Designation not added!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:132
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:242
+#: admin/inc/controllers/wl-ehrm-events-actions.php:79
+#: admin/inc/controllers/wl-ehrm-events-actions.php:192
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:81
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:196
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:73
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:177
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:80
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:267
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:156
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:324
+msgid "Please enter name.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:134
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:244
+msgid "Please select color.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:136
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:246
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:87
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:202
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:77
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:181
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:88
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:275
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:170
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:338
+msgid "Please select status.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:230
+msgid "Designation updated successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:234
+msgid "Designation not Updated!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:306
+msgid "Designation deleted successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:310
+msgid "Designation not Deleted!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-designation-actions.php:316
+msgid "Something went wrong.!!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-events-actions.php:68
+msgid "Event added successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-events-actions.php:72
+msgid "Event not added!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-events-actions.php:81
+#: admin/inc/controllers/wl-ehrm-events-actions.php:194
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:75
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:179
+msgid "Please enter description.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-events-actions.php:83
+#: admin/inc/controllers/wl-ehrm-events-actions.php:196
+msgid "Please select date.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-events-actions.php:85
+#: admin/inc/controllers/wl-ehrm-events-actions.php:198
+msgid "Please select time.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-events-actions.php:182
+msgid "Event updated successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-events-actions.php:186
+msgid "Event not updated!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-events-actions.php:258
+msgid "Event delete successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-events-actions.php:262
+msgid "Event not deleted!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:71
+msgid "Holiday added successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:75
+msgid "Holiday not added!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:83
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:198
+msgid "Please select starting date.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:85
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:200
+msgid "Please select ending date.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:186
+msgid "Holiday updated successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:190
+msgid "Holiday not updated!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:261
+msgid "Holiday deleted successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-holiday-actions.php:265
+msgid "Holiday not deleted!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:63
+msgid "Notice added successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:67
+msgid "Notice not added!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:167
+msgid "Notice updated successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:171
+msgid "Notice not updated!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:239
+msgid "Notice deleted successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-notice-actions.php:243
+msgid "Notice not deleted!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-pay-roll-action.php:66
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:336
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:344
+#: admin/inc/helpers/wl-ehrm-helper.php:1125
+#: admin/inc/helpers/wl-ehrm-helper.php:1505
+#: admin/inc/helpers/wl-ehrm-helper.php:1517
+#: admin/inc/helpers/wl-ehrm-helper.php:1520
+#: admin/inc/helpers/wl-ehrm-helper.php:1625
+#: admin/inc/helpers/wl-ehrm-helper.php:1629
+#: admin/inc/helpers/wl-ehrm-helper.php:1634
+#: admin/inc/helpers/wl-ehrm-helper.php:1638
+#: admin/inc/helpers/wl-ehrm-helper.php:1642
+msgid "Hours"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-pay-roll-action.php:77
+msgid "Pay roll generated successfully.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:106
+#: admin/inc/helpers/wl-ehrm-helper.php:747
+#: admin/inc/helpers/wl-ehrm-helper.php:2039
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:140
+#: public/inc/controllers/wl_ehrm_login_portal.php:114
+msgid "Daily Report"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:114
+msgid "Edit"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:129
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:582
+msgid "Sunday"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:139
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:590
+msgid "absent"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:139
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:590
+msgid "on"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:139
+msgid "this day"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:139
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:590
+msgid "details"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:284
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:326
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:234
+msgid "Salary status"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:289
+#: admin/inc/helpers/wl-ehrm-helper.php:1463
+msgid "Your Monthly Salary"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:293
+#: admin/inc/helpers/wl-ehrm-helper.php:1468
+#: admin/inc/helpers/wl-ehrm-helper.php:1607
+#: admin/inc/helpers/wl-ehrm-helper.php:1620
+msgid "Total Working days"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:297
+msgid "Per day salary"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:305
+msgid "Total present days"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:309
+#: admin/inc/helpers/wl-ehrm-helper.php:1491
+msgid "Total Paid Salary as per total attendance"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:331
+msgid "Your Salary"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:335
+#: admin/inc/helpers/wl-ehrm-helper.php:1504
+msgid "Estimate total time"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:339
+#: admin/inc/helpers/wl-ehrm-helper.php:1508
+msgid "Per hour salary"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:347
+msgid "Your Calculated Salary according to your working hours.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:357
+msgid "Report and salary calulated for "
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:490
+msgid "Report edit successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:494
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:500
+msgid "Something went wrong!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:590
+msgid "this"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:590
+msgid "day"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:590
+msgid "found"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:590
+msgid "for"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-reports-actions.php:590
+msgid "this day."
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-requests-actions.php:84
+#: admin/inc/controllers/wl-ehrm-requests-actions.php:178
+msgid "Request not added"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-requests-actions.php:234
+msgid "Request not deleted"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-settings.php:41
+msgid "Please select TimeZone"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-settings.php:44
+msgid "Please select Date format"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-settings.php:47
+msgid "Please select time format"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-settings.php:50
+msgid "Please enter half start time"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-settings.php:53
+msgid "Please enter half end time"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-settings.php:56
+msgid "Please enter lunch start time"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-settings.php:59
+msgid "Please enter lunch end time"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-settings.php:62
+msgid "Please enter currency symbol"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-settings.php:65
+msgid "Please select currency position"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-settings.php:68
+msgid "Please enter restricted IP."
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-settings.php:104
+msgid "Settings updated successfully"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:70
+msgid "Shift added successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:74
+msgid "Shift not added!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:82
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:269
+msgid "Please select start time.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:84
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:271
+msgid "Please select end time.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:86
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:273
+msgid "Please select late time.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:151
+msgid "Shift deleted successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:155
+msgid "Shift not deleted!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:257
+msgid "Shift updated successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-shift-actions.php:261
+msgid "Shift not updated!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:141
+msgid "Staff added successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:145
+msgid "Staff not added!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:150
+msgid "Staff already exist.!!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:158
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:326
+msgid "Please enter first name.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:160
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:328
+msgid "Please enter last name.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:162
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:330
+msgid "Please enter email.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:164
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:332
+msgid "Please select shift.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:166
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:334
+msgid "Please select designation.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:168
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:336
+msgid "Please enter salary.!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:315
+msgid "Staff updated successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:319
+msgid "Staff not updated!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:410
+msgid "Staff deleted successfully!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-actions.php:414
+msgid "Staff not deleted!"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-dash-actions.php:57
+#: public/inc/controllers/wl_ehrm_login_portal.php:60
+#: public/inc/controllers/wl_ehrm_login_portal.php:63
+msgid "Your Office In Time is"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-dash-actions.php:82
+#: public/inc/controllers/wl_ehrm_login_portal.php:67
+msgid "Your Lunch In Time is"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-dash-actions.php:108
+#: public/inc/controllers/wl_ehrm_login_portal.php:71
+msgid "Your Lunch Out Time is"
+msgstr ""
+
+#: admin/inc/controllers/wl-ehrm-staff-dash-actions.php:161
+#: public/inc/controllers/wl_ehrm_login_portal.php:75
+msgid "Your Office Out Time is"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:379
+msgid "Good Morning"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:382
+msgid "Good Afternoon "
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:385
+msgid "Good Evening "
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:388
+msgid "Good Night "
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:516
+msgid "Logged in"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:737
+msgid "Late Reson"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1127
+msgid "No data found"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1287
+msgid "Logged In"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1289
+msgid "Logged Out"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1473
+#: admin/inc/helpers/wl-ehrm-helper.php:1478
+#: admin/inc/helpers/wl-ehrm-helper.php:1611
+#: admin/inc/helpers/wl-ehrm-helper.php:1615
+msgid "This Month ("
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1473
+#: admin/inc/helpers/wl-ehrm-helper.php:1611
+msgid "as per day Salary"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1478
+#: admin/inc/helpers/wl-ehrm-helper.php:1615
+msgid "as per day total Salary"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1483
+msgid "This Month Total Unpaid salary"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1516
+msgid "Your total working hours"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1520
+msgid "Your total salary"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1591
+msgid "Estimate for this month"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1595
+msgid "Total days in this month"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1599
+msgid "Total Full days"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1603
+msgid "Total Half days"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1624
+msgid "Total Full days("
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1628
+msgid "Total Half days("
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1633
+msgid "Total Working Hours for this month"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1637
+msgid "Total leave Hours for this Month"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1641
+msgid "Estimated Total Working Hours"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1916
+msgid "User IP"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:1948
+msgid "User Location"
+msgstr ""
+
+#: admin/inc/helpers/wl-ehrm-helper.php:2008
+msgid "Offine IN"
+msgstr ""
+
+#: admin/inc/import/wl_ehrm_events.php:20
+#: admin/inc/import/wl_ehrm_holiday.php:20
+msgid "Please upload a file first.!"
+msgstr ""
+
+#: admin/inc/import/wl_ehrm_events.php:24
+#: admin/inc/import/wl_ehrm_holiday.php:24
+msgid "Please upload a valid .csv file.!"
+msgstr ""
+
+#: admin/inc/import/wl_ehrm_events.php:29
+#: admin/inc/import/wl_ehrm_holiday.php:29
+msgid "Please upload a file to import.!"
+msgstr ""
+
+#: admin/inc/import/wl_ehrm_events.php:55
+msgid "Events imported successfully.!"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:48
+msgid "Last Day Working Hours"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:59
+msgid "Total Attendance"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:70
+msgid "Total Absent"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:104
+msgid "Activitys"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:119
+#: public/inc/controllers/wl_ehrm_login_portal.php:93
+msgid "Submit you reson"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:122
+#: public/inc/controllers/wl_ehrm_login_portal.php:96
+msgid "Enter your reson to come late today"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:123
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:144
+#: public/inc/controllers/wl_ehrm_login_portal.php:97
+#: public/inc/controllers/wl_ehrm_login_portal.php:118
+msgid "Content...."
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:143
+#: public/inc/controllers/wl_ehrm_login_portal.php:117
+msgid "Submit your daily report"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:238
+msgid "Exact"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_dash.php:241
+msgid "Estimated"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_error.php:12
+msgid "Unauthorized user"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_error.php:23
+msgid "Unauthorized IP Address"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_error.php:27
+msgid ""
+"There's a problem with 401 Unauthorized, the HTTP status code for "
+"authentication errors. And that’s just it’s for authentication, not "
+"authorization. Receiving a 401 response is the server telling you, you "
+"aren’t authorized at all or authenticated incorrectly."
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_error.php:29
+msgid "You can not login from this IP..!!"
+msgstr ""
+
+#: admin/inc/subscriber/wl_ehrm_staff_requests.php:20
+msgid "Add Leave Requests"
+msgstr ""
+
+#: public/inc/controllers/wl_ehrm_login_actions.php:57
+msgid "Your Office In Time is "
+msgstr ""
+
+#: public/inc/controllers/wl_ehrm_login_actions.php:86
+msgid "Your Lunch In Time is "
+msgstr ""
+
+#: public/inc/controllers/wl_ehrm_login_actions.php:112
+msgid "Your Lunch Out Time is "
+msgstr ""
+
+#: public/inc/controllers/wl_ehrm_login_actions.php:165
+msgid "Your Office Out Time is "
+msgstr ""
+
+#: public/inc/controllers/wl_ehrm_login_portal.php:13
+msgid "Good Morning, "
+msgstr ""
+
+#: public/inc/controllers/wl_ehrm_login_portal.php:16
+msgid "Good Afternoon, "
+msgstr ""
+
+#: public/inc/controllers/wl_ehrm_login_portal.php:19
+msgid "Good Evening, "
+msgstr ""
+
+#: public/inc/controllers/wl_ehrm_login_portal.php:22
+msgid "Good Night, "
+msgstr ""
+
+#: public/inc/controllers/wl_ehrm_login_portal.php:33
+msgid "Staff Attendance"
+msgstr ""
+
+#: public/inc/controllers/wl_ehrm_login_portal.php:63
+msgid "You are late today!"
+msgstr ""
+
+#: public/inc/controllers/wl_ehrm_login_portal.php:67
+#: public/inc/controllers/wl_ehrm_login_portal.php:71
+#: public/inc/controllers/wl_ehrm_login_portal.php:75
+msgid "Success!"
+msgstr ""

@@ -1,0 +1,77 @@
+Ver 2.6 (12-01-2022 )
+========
+* Fixed: Salary print issue(admin side)
+* Fixed: Add staff time salary message
+
+Ver 2.5 (06-01-2022 )
+========
+* Fixed: TinyMCE editor issue
+* Added: Project based salary
+
+Ver 2.4 (16-11-2021 )
+========
+* Fixed: Staff name not coming in leave detail
+* Fixed: Deaprtment title updated
+
+Ver 2.3 (28-07-2021 )
+========
+* Fixed: salary and office in button undefined variable bugs
+* Add direct office in out shortcode for page or post
+
+Ver 2.2 (06-04-2021 )
+========
+* Fixed: settings save issue fixed.
+* Fixed: front-end shortcode issue fixed.
+
+Ver 2.1 (15 -9- 2020 )
+========
+* Fixed: PHP 7.4 issue.
+
+Ver 2.0 (23 June 2020 )
+========
+* Minor Bug Fixed.
+
+Ver 1.9 (30 March 2020)
+========
+* Duplicacy in Report - Fixed.
+
+Ver 1.8 (05 Feb 2020)
+========
+* Email channels options integrated for Notifications ( SMTP, Sendgrid ).
+* SMS channels options integrated for Notifications ( Nexmo ).
+
+Ver 1.7 (24 Jan 2020)
+========
+* Advance Employee's Attandence Report generator
+
+Ver 1.6 (23 Jan 2020)
+========
+* Import Employee's Attendance Reports
+
+Ver 1.5 (26 Nov 2019)
+========
+* Week Day Status settings update
+
+Ver 1.4 (19 Nov 2019)
+========
+* Bug Fix.
+* Setup Wizard Added.
+* Clock Changed.
+* Email Notification Template added.
+
+Ver 1.3 (25 Sept 2019)
+========
+* Envato License Check Update
+
+Ver 1.2 (11 Sept 2019)
+========
+* Bug Fix ( Fix in clock js )
+
+Ver 1.1 (09 Sept 2019)
+========
+* Add Project & Task Management.
+* Added Envato License Check
+
+Ver 1.0 (02 Sept 2019)
+========
+* New Release
