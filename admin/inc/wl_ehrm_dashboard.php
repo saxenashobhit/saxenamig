@@ -23,7 +23,7 @@ $save_settings = get_option( 'ehrm_settings_data' );
         </ul>
       </nav>
     </div>
-    <div class="row">
+    <div class="row">	
       <div class="col-md-3 stretch-card grid-margin">
         <div class="card bg-gradient-danger card-img-holder text-white">
           <div class="card-body">

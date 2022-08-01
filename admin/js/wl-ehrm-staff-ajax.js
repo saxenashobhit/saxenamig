@@ -48,7 +48,7 @@ jQuery(document).ready(function () {
                 if ( response ) {
 					if (response.status == 'success') {
 						toastr.success( response.message );
-                		//location.reload();
+                		location.reload();
                 	} else {
                 		toastr.error( response.message );
 					}
@@ -57,9 +57,9 @@ jQuery(document).ready(function () {
                // location.reload();
             }
         });
-		setTimeout(function(){
-			//location.reload();
-		}, 3000);
+		// setTimeout(function(){
+		// 	location.reload();
+		// }, 3000);
 	});
 
     /* Submit Late reson */

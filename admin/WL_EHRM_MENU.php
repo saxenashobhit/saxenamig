@@ -127,10 +127,10 @@ class WL_EHRM_AdminMenu {
 
 					if (isset($save_settings['restrict_ips']) || isset($save_settings['restrict_ips2'])) {
 
-						$rstd_ip  = $save_settings['restrict_ips'];
+						$rstd_ip   = $save_settings['restrict_ips'];
 						$rstd_ip2  = $save_settings['restrict_ips2'];
 						
-						$ip_parts = explode('.', $rstd_ip);
+						$ip_parts  = explode('.', $rstd_ip);
 						$ip_parts2 = explode('.', $rstd_ip2);
 
 						if ($save_settings['ip_rest_type'] == 'single') {

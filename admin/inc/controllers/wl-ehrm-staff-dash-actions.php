@@ -25,16 +25,17 @@ class StaffDashBoardAction {
 	
 	public static function clock_actions() {
 		check_ajax_referer( 'staff_ajax_nonce', 'nounce' );
+		global $wpdb;
 
 		if ( isset ( $_POST['timezone'] ) && isset ( $_POST['value'] ) ) {
 			$timezone    = sanitize_text_field( $_POST['timezone'] );
 			$value       = sanitize_text_field( $_POST['value'] );
 			$attendences = get_option( 'ehrm_staff_attendence_data' );
+			// $staff_attendance_query_result = null;
 
 			date_default_timezone_set( $timezone );
 			$current_time = date( "H:i:s" );
 			$current_date = date( 'Y-m-d' );
-
 			if ( $value == 'office-in' ) {
 				$shift_data   = EHRMHelperClass::get_staff_shift( get_current_user_id() );
 				$late_time    = date( "H:i:s", strtotime( $shift_data['late'] ) );
@@ -45,31 +46,32 @@ class StaffDashBoardAction {
 				} else {
 					$late = 'On time';
 				}
+
+				$current_user_id      = get_current_user_id();
+				$staff_table_id       =  EHRM_Helper::fetch_staff_id_stafftable( $current_user_id );
+				$staff_id_staff_table = $staff_table_id->id;
 				
-				$data = array(
-					'staff_id'     => get_current_user_id(),
-					'name'         => EHRMHelperClass::get_current_user_data( get_current_user_id(), 'fullname' ),
-					'email'        => EHRMHelperClass::get_current_user_data( get_current_user_id(), 'user_email' ),
-					'office_in'    => $current_time,
-					'office_out'   => '',
-					'lunch_in'     => '',
-					'lunch_out'    => '',
-					'late'         => $late,
-					'late_reson'   => '',
-					'report'       => '',
-					'working_hour' => '',
-					'date'         => $current_date,
-					'timestamp'    => time(),
-					'id_address'   => $_SERVER['REMOTE_ADDR'],
-					'location'     => EHRMHelperClass::get_user_location( $_SERVER['REMOTE_ADDR'] ),
+				$attendance_data = array(
+					'staff_id'        => $staff_id_staff_table,					
+					'office_in'       => $current_time,
+					'office_out'      => '',
+					'lunch_in'        => '',
+					'lunch_out'       => '',
+					'late'            => $late,
+					'late_reason'      => '',
+					'report'          => '',
+					'ip_address'      => $_SERVER['REMOTE_ADDR'],
+					'location'        => EHRMHelperClass::get_user_location( $_SERVER['REMOTE_ADDR'] ),
+					'working_hours'    => '',
+					'attendance_date' => $current_date,					
 				);
+				$format = ['%d', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' ];		
 
-				if ( empty ( $attendences ) ) {
-					$attendences = array();
-				}
-				array_push( $attendences, $data );
+				//Staff attendance table insert query	
+				$staff_attendance_query_result = $wpdb->insert(EHRM_STAFF_ATTENDANCE,$attendance_data,$format);			
 
-				if ( update_option( 'ehrm_staff_attendence_data', $attendences ) ) {
+				// if ( update_option( 'ehrm_staff_attendence_data', $attendences ) ) {
+				if ( $staff_attendance_query_result == 1 ) {
 					$message = esc_html__( 'Your Office In Time is', 'employee-&-hr-management' ).' '.esc_html( date( EHRMHelperClass::get_time_format(), strtotime( $current_time ) ) );
 					$status  = 'success';
 					// EHRMHelperClass::ehrm_shoot_mail_staff_details( get_current_user_id(), $current_time, '', EHRMHelperClass::get_user_location( $_SERVER['REMOTE_ADDR'] ), $_SERVER['REMOTE_ADDR'] );

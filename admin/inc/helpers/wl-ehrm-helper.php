@@ -2,7 +2,7 @@
 defined( 'ABSPATH' ) or die();
 require_once( WL_EHRM_PLUGIN_DIR_PATH . '/admin/inc/sms/vendor/autoload.php' );
 // require_once WL_EHRM_PLUGIN_DIR_PATH . 'includes/constants.php';
-// require_once WL_EHRM_PLUGIN_DIR_PATH . 'includes/EHRM_Helper.php';
+require_once WL_EHRM_PLUGIN_DIR_PATH . 'includes/EHRM_Helper.php';
 
 /**
  * Helper Class
@@ -159,17 +159,20 @@ class EHRMHelperClass {
 	 * @return boolean value
 	 */
 	public static function check_user_availability() {
-		$staffs        = get_option( 'ehrm_staffs_data' );
+		global $wpdb;
+		//$staffs        = get_option( 'ehrm_staffs_data' );
 		$status        = 0;
 		$user_id       = get_current_user_id();
+		$staffs = EHRM_Helper::check_staff_existance( $user_id );
 
-		
-		if ( ! empty ( $staffs ) ) {
-			foreach ( $staffs as $key => $value ) {
-				if ( $user_id == $value['ID'] ) {
-					$status++;
-				}
-			}
+		if ( ! empty ( $staffs[0]->total > 0 ) ) {        		
+			$exist = 1;
+		} else {
+			$exist = 0;
+		}	
+			
+		if ( $staffs[0]->total > 0 ) {
+			$status++;
 		}
 
 		if ( $status != 0 ) {
@@ -445,20 +448,21 @@ class EHRMHelperClass {
 	/**
 	 * Helper function for Staff's Data
 	 *
-	 * @param  array  $id User id.
+	 * @param  int  $id current User id.
 	 * @param  string  $value index value.
 	 * @return string
 	 */
-	public static function get_current_user_data( $id, $value ) {		
-		if( isset( $id[0] ) && empty($id[0]) ) {
-			$id = $id[0];
-		} else {
-			$id = $id;
-		}
-		$user          = get_userdata( $id );
+	public static function get_current_user_data( $id, $value ) {
 		global $wpdb;
-		//$staffs        = get_option( 'ehrm_staffs_data' );
-		$shifts		   = get_option( 'ehrm_shifts_data' );
+		// if( isset( $id[0] ) && empty($id[0]) ) {
+		// 	$id = $id[0];
+		// } else {
+		// 	$id = $id;
+		// }
+		$user = get_userdata( $id );	
+		//Call the staff table to get the staff phone no
+		$staff_data = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM " . EHRM_STAFF . " WHERE user_id=%d", $id ));
+		
 		if ( ! empty ( $value ) && $value == 'First_name' ) {
 			return $user->first_name;
 		} elseif( ! empty ( $value ) && $value == 'Last_name' ) {
@@ -474,7 +478,7 @@ class EHRMHelperClass {
 		} elseif( ! empty ( $value ) && $value == 'Fullname' ) {
 			return $user->first_name.' '.$user->last_name;
 		} elseif ( ! empty ( $value ) && $value == 'Phone' ) {
-			return $shifts[$id]['phone'];
+			return $staff_data->phone_no;
 		}
 	}
 
@@ -486,33 +490,13 @@ class EHRMHelperClass {
 	 */
 	public static function get_staff_shift( $staff_id ) {
 		global $wpdb;
-		// $staffs   = get_option( 'ehrm_staffs_data' );
-		// $shifts   = get_option( 'ehrm_shifts_data' );
 		
 		$staffs 		= $wpdb->get_results( 'SELECT * FROM ' . EHRM_STAFF . ' as st WHERE st.user_id= ' . $staff_id);
 		$shift_id 		= $staffs[0]->shift_id;
 		$staff_table_id = $staffs[0]->id;
 		
 
-		$shift_data = $wpdb->get_results( 'SELECT * FROM ' . EHRM_SHIFTS . ' WHERE id=' . $shift_id );
-		// echo "<pre>"; var_dump($staffs); echo "</pre>";
-		// echo "<pre>"; var_dump($shift_data); echo "</pre>";
-
-		// die();
-
-		// foreach ( $staffs as $key => $value ) {
-		// 	if ( $value['ID'] ==$staff_id ) {
-		// 		$shift_id = $value['shift_id'];
-		// 	}
-		// }
-	
-		// $data = array(
-		// 	'name'   => $shifts[$shift_id]['name'],
-		// 	'start'  => $shifts[$shift_id]['start'],
-		// 	'end'    => $shifts[$shift_id]['end'],
-		// 	'late'   => $shifts[$shift_id]['late'],
-		// 	'status' => $shifts[$shift_id]['status'],
-		// );
+		$shift_data = $wpdb->get_results( 'SELECT * FROM ' . EHRM_SHIFTS . ' WHERE id=' . $shift_id );		
 		$data = array(
 			'name'   => $shift_data[0]->name,
 			'start'  => $shift_data[0]->start_time,
@@ -778,8 +762,13 @@ class EHRMHelperClass {
 	 */
 	public static function ehrm_staff_action_clock_buttons() {
 		
-		$attendences   = get_option( 'ehrm_staff_attendence_data' );
+		//$attendences   = get_option( 'ehrm_staff_attendence_data' );
 		$user_id       = get_current_user_id();
+		$staff_id	   = EHRM_Helper::fetch_staff_id_stafftable( $user_id );
+		$attendence    = EHRM_Helper::staff_attendance_data( $staff_id->id );
+		echo "<pre>";
+		var_dump($attendence);
+		echo "</pre>";
 		$html          = '';
 		$current_date  = date( 'Y-m-d' );
 		$absent_days   = self::ehrm_total_absents();
@@ -1520,7 +1509,7 @@ class EHRMHelperClass {
 	 */
 	// public static function get_staff_total_working_hours( $user_id = null, $first, $last ) {
 	public static function get_staff_total_working_hours( $first, $last, $user_id = null ) {
-		// die("Chellam");
+		// die();
 		if ( empty( $user_id ) ) {
 			$user_id = get_current_user_id();
 		}
@@ -1940,7 +1929,7 @@ class EHRMHelperClass {
 		if ( empty ( $user_id ) ) {
 			$user_id = get_current_user_id();
 		}
-		var_dump($user_id);
+		// var_dump($user_id);
 		$save_settings = get_option( 'ehrm_settings_data' );
 		$all_staffs    = get_option( 'ehrm_staffs_data' );
 		$login_sub     = $save_settings['office_in_sub'];

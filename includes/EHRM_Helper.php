@@ -215,5 +215,25 @@ if( !class_exists('EHRM_Helper') ) {
             $query = $wpdb->get_row( $wpdb->prepare( 'SELECT s.id, s.first_name, s.last_name, s.email,s.phone_no, s.dob, s.address, s.shift_id, s.designation_id, s.pay_type,s.amount,s.leaves,s.description, s.user_id, s.status, ut.user_login FROM ' . EHRM_STAFF . ' as s JOIN ' . EHRM_USER_TABLE . ' as ut ON ut.ID = s.user_id WHERE s.id=%d', $staff_id) );
             return $query;
         }
+
+        /**
+         * @param $id current user id 
+         * @return staff table id and get the user_id also it is also needed in some cases abd today is 1 August 2022
+         */
+        public static function fetch_staff_id_stafftable( $id ) {
+            global $wpdb;
+            $query = $wpdb->get_row( $wpdb->prepare( 'SELECT id FROM ' . EHRM_STAFF . ' WHERE user_id = %d', $id ) );
+            return $query;
+        }
+
+        /**
+         * @param $id staff id from the staff table id
+         * @return object staff attendance data as object
+         */
+        public static function staff_attendance_data( $id ) {
+            global $wpdb;
+            $query = $wpdb->get_results( $wpdb->prepare("SELECT * FROM " . EHRM_STAFF_ATTENDANCE . " WHERE staff_id = %d", $id) );
+            return $query;
+        }
     }
 }
