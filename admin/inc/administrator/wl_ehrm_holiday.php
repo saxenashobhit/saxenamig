@@ -1,7 +1,17 @@
 <?php
 defined( 'ABSPATH' ) or die();
+global $wpdb;
 require_once( WL_EHRM_PLUGIN_DIR_PATH . '/admin/inc/helpers/wl-ehrm-helper.php' );
-$all_holidays = get_option( 'ehrm_holidays_data' );
+// $all_holidays = get_option( 'ehrm_holidays_data' );
+$all_holidays = $wpdb->get_results( "SELECT * FROM " . EHRM_HOLIDAY );
+// echo "<pre>";
+// var_dump($all_holidays);
+// echo "</pre>";
+if( count($all_holidays) ) {
+	foreach($all_holidays as $holiday) {
+		$holiday->holiday_name;
+	}
+}
 ?>
 <!-- partial -->
 <div class="main-panel">
@@ -57,7 +67,14 @@ $all_holidays = get_option( 'ehrm_holidays_data' );
 		                    	</thead>
 		                    	<tbody id="holiday_tbody">
 								<?php 
-				                    	if ( ! empty ( $all_holidays ) ) {
+								if(count($all_holidays)) {
+									// foreach($all_holidays as $allHolidays) {
+									// 	//print_r($allHolidays);
+									// 	echo $allHolidays->holiday_name . " - " . $allHolidays->holiday_from . " - " . $allHolidays->holiday_to;
+									// }
+								}
+				                    	// if ( ! empty ( $all_holidays ) ) {
+									if(count($all_holidays)) {
 
                                         $sno         = 1;        
                                         $first       = new \DateTime( date( "Y" )."-01-01" );
@@ -67,15 +84,16 @@ $all_holidays = get_option( 'ehrm_holidays_data' );
                                         $last        = $last->format( "Y-m-d" );          
                                         $all_dates   = EHRMHelperClass::ehrm_get_date_range( $first, $last );
 
-		                        		foreach ( $all_holidays as $key => $holiday ) {
-                                            if ( in_array( $holiday['to'], $all_dates ) ) {
+		                        		// foreach ( $all_holidays[0] as $key => $holiday ) {
+										foreach($all_holidays as $holiday) {
+                                        if ( in_array( $holiday->holiday_to, $all_dates ) ) {
                                 ?>
 			                        <tr>
 										<td><?php echo esc_html( $sno ); ?>.</td>
-			                          	<td><?php echo esc_html( $holiday['name'] ); ?></td>
-			                          	<td><?php echo( "From ".date( EHRMHelperClass::get_date_format(), strtotime( $holiday['start'] ) )." to ".date( EHRMHelperClass::get_date_format(), strtotime( $holiday['to'] ) ) ); ?></td>
-			                          	<td><?php echo esc_html( $holiday['days'] ); ?></td>
-			                          	<td><?php echo esc_html( $holiday['status'] ); ?></td>
+			                          	<td><?php echo esc_html( $holiday->holiday_name ); ?></td>
+			                          	<td><?php echo( "From ".date( EHRMHelperClass::get_date_format(), strtotime( $holiday->holiday_from ) )." to ".date( EHRMHelperClass::get_date_format(), strtotime( $holiday->holiday_to ) ) ); ?></td>
+			                          	<td><?php echo esc_html( $holiday->days ); ?></td>
+			                          	<td><?php echo esc_html( $holiday->status ); ?></td>
 			                          	<td class="designation-action-tools">
 			                          		<ul class="designation-action-tools-ul">
 			                          			<li class="designation-action-tools-li">
@@ -92,7 +110,10 @@ $all_holidays = get_option( 'ehrm_holidays_data' );
 			                          	</td>
 			                        </tr>
 				                    <?php $sno++;
-                                            } } } else { ?>
+                                            } 
+											} 
+											} 
+											else { ?>
 				                    <tr>
 				                    	<td><?php esc_html_e( 'No Holidays added yet.!', 'employee-&-hr-management' ); ?></td>
 				                    </tr>
@@ -166,8 +187,8 @@ $all_holidays = get_option( 'ehrm_holidays_data' );
 	                    <div class="form-group">
 	                      	<label for="holiday_status"><?php esc_html_e( 'Status', 'employee-&-hr-management' ); ?></label>
 	                      	<select name="holiday_status" id="holiday_status" class="form-control">
-	                      		<option value="Active"><?php esc_html_e( 'Active', 'employee-&-hr-management' ); ?></option>
-	                      		<option value="Inactive"><?php esc_html_e( 'Inactive', 'employee-&-hr-management' ); ?></option>
+	                      		<option value="1"><?php esc_html_e( 'Active', 'employee-&-hr-management' ); ?></option>
+	                      		<option value="0"><?php esc_html_e( 'Inactive', 'employee-&-hr-management' ); ?></option>
 	                      	</select>
 	                    </div>
 	                    <input type="button" class="btn btn-gradient-primary mr-2" id="add_holiday_btn" value="<?php esc_html_e( 'Submit', 'employee-&-hr-management' ); ?>">
@@ -202,8 +223,8 @@ $all_holidays = get_option( 'ehrm_holidays_data' );
 	                    <div class="form-group">
 	                      	<label for="edit_holiday_status"><?php esc_html_e( 'Status', 'employee-&-hr-management' ); ?></label>
 	                      	<select name="edit_holiday_status" id="edit_holiday_status" class="form-control">
-	                      		<option value="Active"><?php esc_html_e( 'Active', 'employee-&-hr-management' ); ?></option>
-	                      		<option value="Inactive"><?php esc_html_e( 'Inactive', 'employee-&-hr-management' ); ?></option>
+	                      		<option value="Active"><?php esc_html_e( '1', 'employee-&-hr-management' ); ?></option>
+	                      		<option value="Inactive"><?php esc_html_e( '0', 'employee-&-hr-management' ); ?></option>
 	                      	</select>
 	                    </div>
 	                    <input type="hidden" name="holiday_key" id="holiday_key">

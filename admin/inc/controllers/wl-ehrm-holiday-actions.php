@@ -24,9 +24,9 @@ class HolidaysAjaxAction {
 			$html     = '';
 
 			$data = array(
-				'name'   => $name,
-				'start'  => $start,
-				'to'     => $to,
+				'holiday_name'   => $name,
+				'holiday_from'  => $start,
+				'holiday_to'     => $to,
 				'days'   => $leaves,
 				'status' => $status,
 			);
@@ -35,21 +35,25 @@ class HolidaysAjaxAction {
 				$Holidays = array();
 			}
 			array_push( $Holidays, $data );
+			global $wpdb;
+			$holiday_result = $wpdb->insert( EHRM_HOLIDAY, $data );
 
-			if ( update_option( 'ehrm_holidays_data', $Holidays ) ) {
+			// if ( update_option( 'ehrm_holidays_data', $Holidays ) ) {
+			if ( $holiday_result == 1 ) {
 
-				$all_holidays = get_option( 'ehrm_holidays_data' );
+				// $all_holidays = get_option( 'ehrm_holidays_data' );
+				$all_holidays = $wpdb->get_results( "SELECT * FROM " . EHRM_HOLIDAY );
 
 				if ( ! empty ( $all_holidays ) ) {
             		$sno = 1;
-            		foreach ( $all_holidays as $key => $holiday ) {
+            		foreach ( $all_holidays as $holiday ) {
             	
 		                $html .= '<tr>
 				                	<td>'.esc_html( $sno ).'.</td>
-				                  	<td>'.esc_html( $holiday['name'] ).'</td>
-				                  	<td class="badge-desc">'.esc_html( "From ".date( EHRMHelperClass::get_date_format(), strtotime( $holiday['start'] ) )." to ".date( EHRMHelperClass::get_date_format(), strtotime( $holiday['to'] ) ) ).'</td>
-				                  	<td>'.esc_html( $holiday['days'] ).'</td>
-				                  	<td>'.esc_html( $holiday['status'] ).'</td>
+				                  	<td>'.esc_html( $holiday->holiday_name ).'</td>
+				                  	<td class="badge-desc">'.esc_html( "From ".date( EHRMHelperClass::get_date_format(), strtotime( $holiday->holiday_from ) )." to ".date( EHRMHelperClass::get_date_format(), strtotime( $holiday->holiday_to ) ) ).'</td>
+				                  	<td>'.esc_html( $holiday->days ).'</td>
+				                  	<td>'.esc_html( $holiday->status ).'</td>
 				                  	<td class="designation-action-tools">
 		                          		<ul class="designation-action-tools-ul">
 		                          			<li class="designation-action-tools-li">

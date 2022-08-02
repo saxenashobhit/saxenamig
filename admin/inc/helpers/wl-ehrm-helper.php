@@ -792,23 +792,21 @@ class EHRMHelperClass {
 		}
 		//  echo "<pre>"; var_dump($attendences); echo "</pre>"; die();
 		// echo get_current_user_id();
-		if ( ! empty ( $attendences ) ) {
-			foreach ( $attendences as $key => $attendence ) {
-				if( $attendence['staff_id'] == get_current_user_id() ) {
-					if ( $attendence['date'] == $current_date && $attendence['staff_id'] == $user_id && ! empty ( $attendence['office_in'] ) && empty ( $attendence['office_out'] ) ) {
+		if ( ! empty ( $attendence ) ) {			
+					if ( $attendence[0]->attendance_date == $current_date && ! empty ( $attendence[0]->office_in ) && empty ( $attendence['office_out'] ) ) {
 						$html .= '<li class="breadcrumb-item" aria-current="page">
 									<button class="btn btn-block btn-lg btn-gradient-danger custom-btn clock-action-btn" data-value="office-out" data-timezone="'.esc_attr( self::get_setting_timezone() ).'">
 									  <i class="mdi mdi-file-export"></i>'.esc_html__(  $officeout_text, '"employee-&-hr-management"' ).'
 									</button>
 								  </li>';
 					}
-					if ( $attendence['date'] == $current_date && $attendence['staff_id'] == $user_id && ! empty ( $attendence['office_in'] ) && ! empty ( $attendence['lunch_in'] ) && empty ( $attendence['lunch_out'] ) && empty ( $attendence['office_out'] ) ) {
+					if ( $attendence[0]->attendance_date == $current_date && ! empty ( $attendence[0]->office_in ) && ! empty ( $attendence[0]->lunch_in ) && empty ( $attendence['lunch_out'] ) && empty ( $attendence['office_out'] ) ) {
 						$html .= '<li class="breadcrumb-item active" aria-current="page">
 									<button class="btn btn-block btn-lg btn-gradient-danger  custom-btn clock-action-btn" data-value="lunch-out" data-timezone="'.esc_attr( self::get_setting_timezone() ).'">
 									  <i class="mdi mdi-plus"></i> '.esc_html__( $lunchout_text, '"employee-&-hr-management"' ).'
 									</button>
 								  </li>';
-					} elseif ( $attendence['date'] == $current_date && $attendence['staff_id'] == $user_id && ! empty ( $attendence['office_in'] ) && empty ( $attendence['lunch_out'] ) && empty ( $attendence['office_out'] ) ) {
+					} elseif ( $attendence[0]->attendance_date == $current_date && ! empty ( $attendence[0]->office_in ) && empty ( $attendence[0]->lunch_out ) && empty ( $attendence[0]->office_out ) ) {
 						$html .= '<li class="breadcrumb-item active" aria-current="page">
 									<button class="btn btn-block btn-lg btn-gradient-success custom-btn clock-action-btn" data-value="lunch-in" data-timezone="'.esc_attr( self::get_setting_timezone() ).'">
 									  <i class="mdi mdi-plus"></i>'.esc_html__( $lunchin_text, '"employee-&-hr-management"' ).'
@@ -817,7 +815,7 @@ class EHRMHelperClass {
 					}
 	
 					if ( ! empty ( $save_settings['late_reson'] ) && $save_settings['late_reson'] == 'Yes' ) {
-						if ( $attendence['date'] == $current_date && $attendence['staff_id'] == $user_id && ! empty ( $attendence['office_in'] ) && $attendence['late'] == 'Late' && empty ( $attendence['late_reson'] ) && empty ( $attendence['office_out'] ) ) {
+						if ( $attendence[0]->attendance_date == $current_date && ! empty ( $attendence[0]->office_in ) && $attendence[0]->late == 'Late' && empty ( $attendence[0]->late_reson ) && empty ( $attendence['office_out'] ) ) {
 							$html .= '<li class="breadcrumb-item active" aria-current="page">
 										<button class="btn btn-block btn-lg btn-gradient-danger custom-btn" data-toggle="modal" data-target="#LateReson" id="late_reson_btn">
 										<i class="mdi mdi-plus"></i>'.esc_html__( $latereson_text, '"employee-&-hr-management"' ).'
@@ -827,7 +825,7 @@ class EHRMHelperClass {
 					}
 	
 					if ( ! empty ( $save_settings['show_report'] ) && $save_settings['show_report'] == 'Yes' ) {
-						if ( $attendence['date'] == $current_date && $attendence['staff_id'] == $user_id && ! empty ( $attendence['office_in'] ) && empty ( $attendence['report'] ) && empty ( $attendence['report']  ) && empty ( $attendence['office_out'] ) ) {
+						if ( $attendence[0]->attendance_date == $current_date && ! empty ( $attendence[0]->office_in ) && empty ( $attendence[0]->report ) && empty ( $attendence[0]->report  ) && empty ( $attendence[0]->office_out ) ) {
 							$html .= '<li class="breadcrumb-item active" aria-current="page">
 										<button class="btn btn-block btn-lg btn-gradient-primary custom-btn" data-toggle="modal" data-target="#DailyReport" id="daily_reportbtn">
 										<i class="mdi mdi-plus"></i>'.esc_html__( $report_text, '"employee-&-hr-management"' ).'
@@ -884,9 +882,7 @@ class EHRMHelperClass {
 									<i class="fa fa-sign-in" aria-hidden="true"></i>'.esc_html__( "Break In" ).'
 									</button>
 								</li>';
-					}
-				 }
-			}
+					}				
 			
 			$no = 1;
 			
@@ -1117,20 +1113,23 @@ class EHRMHelperClass {
 	 * @return array
 	 */
 	public static function ehrm_all_holidays() {
-		$all_holidays = get_option( 'ehrm_holidays_data' );
+		global $wpdb;
+		// $all_holidays = get_option( 'ehrm_holidays_data' );
+		$allHolidays  = $wpdb->get_results( "SELECT * FROM " . EHRM_HOLIDAY );
+		$allHolidays_count = count($allHolidays);
 		$all_dates    = self::ehrm_get_current_date_range();
 		$holiday_arr1 = array();
 		$holiday_arr2 = array();
 		foreach ( $all_dates as $key => $date ) {
 			if ( ! empty ( $all_holidays  ) ) {
-				foreach ( $all_holidays as $holiday_key => $holiday ) {
-					if ( $holiday['start'] == $date ) {
-						$start_date = $holiday['start'];
-						$end_date   = $holiday['to'];
+				foreach ( $all_holidays as $holiday ) {
+					if ( $holiday->holiday_from == $date ) {
+						$start_date = $holiday->holiday_from;
+						$end_date   = $holiday->holiday_to;
 						if ( $end_date == $start_date ) { 
 						    array_push( $holiday_arr1, $start_date );
 						} else {
-							for ( $i=0; $i < $holiday['days'] ; $i++ ) {
+							for ( $i=0; $i < $holiday->days ; $i++ ) {
 								$start_date1 = date( 'Y-m-d', strtotime( $start_date . ' +'.$i.' day' ) );
 								array_push( $holiday_arr2, $start_date1 );
 							}
@@ -1364,8 +1363,10 @@ class EHRMHelperClass {
 	 * @return int
 	 */
 	public static function full_working_days( $start, $last ) {
+		global $wpdb;
 		$all_dates     = self::ehrm_get_date_range( $start, $last );
-		$save_settings = get_option( 'ehrm_settings_data' );
+		//$save_settings = get_option( 'ehrm_settings_data' );
+		$save_settings = $wpdb->get_results( "SELECT * FROM " . EHRM_HOLIDAY );
 		$all_holidays  = self::ehrm_all_holidays();
 		$workdays      = 0;
 		$half_days     = self::get_halfdays();
