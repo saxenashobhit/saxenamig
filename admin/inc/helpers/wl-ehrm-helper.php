@@ -694,7 +694,9 @@ class EHRMHelperClass {
 			$user_id = get_current_user_id();
 		}
 
-		$attendences   = get_option( 'ehrm_staff_attendence_data' );
+		// $attendences   = get_option( 'ehrm_staff_attendence_data' );
+		$staff_id	   = EHRM_Helper::fetch_staff_id_stafftable( $user_id );
+		$attendences   = EHRM_Helper::staff_attendance_data( $staff_id->id );
 		$all_holidays  = EHRMHelperClass::ehrm_all_holidays();
 		$present_days1 = array();
 		$present_days2 = array();
@@ -711,10 +713,10 @@ class EHRMHelperClass {
 		}
 
 		foreach ( $all_dates as $key => $date ) {
-			if ( ! empty ( $attendences ) ) {
-				foreach ( $attendences as $key => $attendence ) {
-					if ( $attendence['date'] == $date && $attendence['staff_id'] == $user_id && ! empty ( $attendence['office_in'] ) ) {
-						array_push( $present_days1, $attendence['date'] );
+			if ( count( $attendences ) > 0 ) {
+				foreach ( $attendences as $attendence ) {
+					if ( $attendence->attendance_date == $date && ! empty ( $attendence->office_in ) ) {
+						array_push( $present_days1, $attendence->attendance_date );
 					}
 				}
 			}
@@ -763,12 +765,13 @@ class EHRMHelperClass {
 	public static function ehrm_staff_action_clock_buttons() {
 		
 		//$attendences   = get_option( 'ehrm_staff_attendence_data' );
+		global $wpdb;
 		$user_id       = get_current_user_id();
 		$staff_id	   = EHRM_Helper::fetch_staff_id_stafftable( $user_id );
-		$attendence    = EHRM_Helper::staff_attendance_data( $staff_id->id );
-		echo "<pre>";
-		var_dump($attendence);
-		echo "</pre>";
+		$attendences   = EHRM_Helper::staff_attendance_data( $staff_id->id );
+		// echo "<pre>";
+		// var_dump($attendences);
+		// echo "</pre>";
 		$html          = '';
 		$current_date  = date( 'Y-m-d' );
 		$absent_days   = self::ehrm_total_absents();
@@ -782,7 +785,9 @@ class EHRMHelperClass {
         $lunchout_text  = isset($save_settings['lunchout_text']) ? sanitize_text_field($save_settings['lunchout_text']) : __('Lunch Out', '"employee-&-hr-management"');
         $latereson_text = isset($save_settings['latereson_text']) ? sanitize_text_field($save_settings['latereson_text']) : __('Late Reason', '"employee-&-hr-management"');
         $report_text    = isset($save_settings['report_text']) ? sanitize_text_field($save_settings['report_text']) : __('Daily Report', '"employee-&-hr-management"');
-
+		// echo "<pre>";
+		// print_r($absent_days);
+		// echo "</pre>";
 		if ( in_array( $current_date, $absent_days['dates1'] ) ) {
 			$html .= '<li class="breadcrumb-item" aria-current="page">
 		                <button class="btn btn-block btn-lg btn-gradient-success  custom-btn clock-action-btn" data-value="office-in" data-timezone="'.esc_attr( self::get_setting_timezone() ).'">
@@ -792,127 +797,134 @@ class EHRMHelperClass {
 		}
 		//  echo "<pre>"; var_dump($attendences); echo "</pre>"; die();
 		// echo get_current_user_id();
-		if ( ! empty ( $attendence ) ) {			
-					if ( $attendence[0]->attendance_date == $current_date && ! empty ( $attendence[0]->office_in ) && empty ( $attendence['office_out'] ) ) {
-						$html .= '<li class="breadcrumb-item" aria-current="page">
-									<button class="btn btn-block btn-lg btn-gradient-danger custom-btn clock-action-btn" data-value="office-out" data-timezone="'.esc_attr( self::get_setting_timezone() ).'">
-									  <i class="mdi mdi-file-export"></i>'.esc_html__(  $officeout_text, '"employee-&-hr-management"' ).'
-									</button>
-								  </li>';
-					}
-					if ( $attendence[0]->attendance_date == $current_date && ! empty ( $attendence[0]->office_in ) && ! empty ( $attendence[0]->lunch_in ) && empty ( $attendence['lunch_out'] ) && empty ( $attendence['office_out'] ) ) {
+		// if ( ! empty ( $attendences ) ) {
+		if ( count( $attendences ) ) {	
+			foreach( $attendences as $attendence) {
+				//echo $attendence->attendance_date . "--current date--" . $current_date . "--" . $attendence->office_in . "--out time--" . $attendence->office_out . "<br>";
+				
+				if ( $attendence->attendance_date == $current_date && ! empty ( $attendence->office_in ) && $attendence->office_out === "00:00:00" ) {
+					$html .= '<li class="breadcrumb-item" aria-current="page">
+								<button class="btn btn-block btn-lg btn-gradient-danger custom-btn clock-action-btn" data-value="office-out" data-timezone="'.esc_attr( self::get_setting_timezone() ).'">
+								  <i class="mdi mdi-file-export"></i>'.esc_html__(  $officeout_text, '"employee-&-hr-management"' ).'
+								</button>
+							  </li>';
+				}
+				if ( $attendence->attendance_date == $current_date && ! empty ( $attendence->office_in ) && $attendence->lunch_in !== "00:00:00" && $attendence->lunch_out === "00:00:00" && $attendence->office_out === "00:00:00" ) {
+					$html .= '<li class="breadcrumb-item active" aria-current="page">
+								<button class="btn btn-block btn-lg btn-gradient-danger  custom-btn clock-action-btn" data-value="lunch-out" data-timezone="'.esc_attr( self::get_setting_timezone() ).'">
+								  <i class="mdi mdi-plus"></i> '.esc_html__( $lunchout_text, '"employee-&-hr-management"' ).'
+								</button>
+							  </li>';
+				} elseif ( $attendence->attendance_date == $current_date && ! empty ( $attendence->office_in ) && $attendence->lunch_out === "00:00:00" &&  $attendence->office_out === "00:00:00" ) {
+					$html .= '<li class="breadcrumb-item active" aria-current="page">
+								<button class="btn btn-block btn-lg btn-gradient-success custom-btn clock-action-btn" data-value="lunch-in" data-timezone="'.esc_attr( self::get_setting_timezone() ).'">
+								  <i class="mdi mdi-plus"></i>'.esc_html__( $lunchin_text, '"employee-&-hr-management"' ).'
+								</button>
+							  </li>';
+				}
+
+				if ( ! empty ( $save_settings['late_reson'] ) && $save_settings['late_reson'] == 'Yes' ) {
+					if ( $attendence->attendance_date == $current_date && ! empty ( $attendence->office_in ) && $attendence->late == '1' && empty ( $attendence->late_reson ) && $attendence->office_out === "00:00:00" ) {
 						$html .= '<li class="breadcrumb-item active" aria-current="page">
-									<button class="btn btn-block btn-lg btn-gradient-danger  custom-btn clock-action-btn" data-value="lunch-out" data-timezone="'.esc_attr( self::get_setting_timezone() ).'">
-									  <i class="mdi mdi-plus"></i> '.esc_html__( $lunchout_text, '"employee-&-hr-management"' ).'
-									</button>
-								  </li>';
-					} elseif ( $attendence[0]->attendance_date == $current_date && ! empty ( $attendence[0]->office_in ) && empty ( $attendence[0]->lunch_out ) && empty ( $attendence[0]->office_out ) ) {
-						$html .= '<li class="breadcrumb-item active" aria-current="page">
-									<button class="btn btn-block btn-lg btn-gradient-success custom-btn clock-action-btn" data-value="lunch-in" data-timezone="'.esc_attr( self::get_setting_timezone() ).'">
-									  <i class="mdi mdi-plus"></i>'.esc_html__( $lunchin_text, '"employee-&-hr-management"' ).'
-									</button>
-								  </li>';
-					}
-	
-					if ( ! empty ( $save_settings['late_reson'] ) && $save_settings['late_reson'] == 'Yes' ) {
-						if ( $attendence[0]->attendance_date == $current_date && ! empty ( $attendence[0]->office_in ) && $attendence[0]->late == 'Late' && empty ( $attendence[0]->late_reson ) && empty ( $attendence['office_out'] ) ) {
-							$html .= '<li class="breadcrumb-item active" aria-current="page">
-										<button class="btn btn-block btn-lg btn-gradient-danger custom-btn" data-toggle="modal" data-target="#LateReson" id="late_reson_btn">
-										<i class="mdi mdi-plus"></i>'.esc_html__( $latereson_text, '"employee-&-hr-management"' ).'
-										</button>
-									</li>';
-						}
-					}
-	
-					if ( ! empty ( $save_settings['show_report'] ) && $save_settings['show_report'] == 'Yes' ) {
-						if ( $attendence[0]->attendance_date == $current_date && ! empty ( $attendence[0]->office_in ) && empty ( $attendence[0]->report ) && empty ( $attendence[0]->report  ) && empty ( $attendence[0]->office_out ) ) {
-							$html .= '<li class="breadcrumb-item active" aria-current="page">
-										<button class="btn btn-block btn-lg btn-gradient-primary custom-btn" data-toggle="modal" data-target="#DailyReport" id="daily_reportbtn">
-										<i class="mdi mdi-plus"></i>'.esc_html__( $report_text, '"employee-&-hr-management"' ).'
-										</button>
-									</li>';
-						}
-					}	
-							
-					$all_breaks = get_option( 'ehrm_breakpoints' );
-					// echo "<pre>"; print_r($all_breaks); echo "</pre>"; //die();
-					//$html       = '';
-					$counter    = 0;
-					
-					if ( ! empty ( $all_breaks ) ) {
-						//echo "<pre>"; var_dump($all_breaks); echo "</pre>";
-						$key = 1;
-						foreach ( $all_breaks as $key => $breaks ) {							
-							if ( $breaks['date'] == date( 'Y-m-d') && $breaks['user_id'] == get_current_user_id() ) {
-								$counter = $key;
-							}
-						}						
-						$new_count = $counter;						
-						// echo "<pre>"; var_dump($all_breaks[$new_count]); echo "</pre>";
-						if ( $all_breaks[$new_count]['date'] == date( 'Y-m-d') && !empty ( $all_breaks[$new_count]['break_in'] ) && empty ( $all_breaks[$new_count]['break_out'] ) ) {
-						// if ( $all_breaks[$new_count]['date'] == date( 'Y-m-d') && empty ( $all_breaks[$new_count]['break_out'] ) ) {
-							if($attendence['office_out']==""){
-							$html .= '<li>
-										<button type="submit" id="whrm-breakout-btn-'.esc_attr( $new_count ).'" data-counter="'.esc_attr( $new_count ).'" name="whrm-breakout-btn" class="btn btn-gradient-danger btn-mg whrm-breakout-btn">
-											<i class="fa fa-sign-out" aria-hidden="true"></i>'.esc_html__( "Break Out").'
-										</button>
-									</li>';
-							}
-						} elseif ( $all_breaks[$new_count]['date'] == date( 'Y-m-d') && !empty ( $all_breaks[$new_count]['break_in'] ) && !empty ( $all_breaks[$new_count]['break_out'] ) ) {
-							if($attendence['office_out']==""){
-							$html .= '<li>
-											<button type="submit" id="whrm-breakin-btn-'.esc_attr( $counter ).'" data-counter="'.esc_attr( $counter ).'" name="whrm-breakin-btn" class="btn btn-gradient-success btn-mg whrm-breakin-btn" >
-											<i class="fa fa-sign-in" aria-hidden="true"></i>'.esc_html__( "Break In" ).'
-											</button>
-										</li>';
-						}}
-						else {
-								if($attendence['office_out'] == "") {
-									$html .= '<li>
-													<button type="submit" id="whrm-breakin-btn-'.esc_attr( $counter ).'" data-counter="'.esc_attr( $counter ).'" name="whrm-breakin-btn" class="btn btn-gradient-success btn-mg whrm-breakin-btn" >
-													<i class="fa fa-sign-in" aria-hidden="true"></i>'.esc_html__( "Break In" ).'
-													</button>
-											 </li>';
-							}
-						}	
-					}
-					else {
-						$html .= '<li>
-									<button type="submit" id="whrm-breakin-btn-'.esc_attr( $counter ).'" data-counter="'.esc_attr( $counter ).'" name="whrm-breakin-btn" class="btn btn-gradient-success btn-mg whrm-breakin-btn" >
-									<i class="fa fa-sign-in" aria-hidden="true"></i>'.esc_html__( "Break In" ).'
+									<button class="btn btn-block btn-lg btn-gradient-danger custom-btn" data-toggle="modal" data-target="#LateReson" id="late_reson_btn">
+									<i class="mdi mdi-plus"></i>'.esc_html__( $latereson_text, '"employee-&-hr-management"' ).'
 									</button>
 								</li>';
-					}				
-			
-			$no = 1;
-			
-			$duration_arr = array();
-			if ( ! empty ( $all_breaks ) ) {
-				$all_breaks = get_option( 'ehrm_breakpoints' );			
-				$mu = count($all_breaks);
-				foreach ( $all_breaks as $key => $breaks ) {
+					}
+				}
+
+				if ( ! empty ( $save_settings['show_report'] ) && $save_settings['show_report'] == 'Yes' ) {
+					if ( $attendence->attendance_date == $current_date && ! empty ( $attendence->office_in ) && empty ( $attendence->report ) && empty ( $attendence->report  ) && $attendence->office_out === "00:00:00" ) {
+						$html .= '<li class="breadcrumb-item active" aria-current="page">
+									<button class="btn btn-block btn-lg btn-gradient-primary custom-btn" data-toggle="modal" data-target="#DailyReport" id="daily_reportbtn">
+									<i class="mdi mdi-plus"></i>'.esc_html__( $report_text, '"employee-&-hr-management"' ).'
+									</button>
+								</li>';
+					}
+				}
+
+				//echo $staff_id->id;
+				// $all_breaks = get_option( 'ehrm_breakpoints' );
+				$all_breaks = $wpdb->get_results( $wpdb->prepare("SELECT * FROM " . EHRM_BREAK . " WHERE staff_id=%d", $staff_id->id) );
+					// echo "<pre>"; print_r($all_breaks); echo "</pre>"; //die();
+					//$html       = '';
+				$counter    = 0;
+				
+				if ( count( $all_breaks ) > 0 ) {
+					//echo "<pre>"; var_dump($all_breaks); echo "</pre>";
+					$key = 1;
+					foreach ( $all_breaks as $breaks ) {							
+						if ( $breaks->brek_date == date( 'Y-m-d') ) {
+							$counter = $key;
+						}
+					}						
+					$new_count = $counter;						
 					
-					if ( $breaks['date'] == date( 'Y-m-d') && $breaks['user_id'] == get_current_user_id() ) {
-						//echo $no;
-						$html .='<div class="col-md-3 breakpoints-activities-div">
-									<ul>
-										<p>'.esc_html__( "Break Out").' '. esc_html( $no ).' </p>
-										<li>'.esc_html__( "Break In Time:-" ).' '. esc_html( $breaks['break_in'] ).' </li>
-										<li>'.esc_html__( "Break Out Time:-" ).' '. esc_html( $breaks['break_out'] ).' </li>
-										<li>'.esc_html__( "Break Duration Time:-" ).' '. esc_html( $breaks['break_time'] ).' </li>
-									</ul>
-								</div>';
-					$no++;
-					//echo $breaks['break_time'];
-					array_push( $duration_arr, $breaks['break_time'] );	
+					if ( $all_breaks[$new_count]['date'] == date( 'Y-m-d') && !empty ( $all_breaks[$new_count]['break_in'] ) && empty ( $all_breaks[$new_count]['break_out'] ) ) {
+					// if ( $all_breaks[$new_count]['date'] == date( 'Y-m-d') && empty ( $all_breaks[$new_count]['break_out'] ) ) {
+						if($attendence->office_out === "00:00:00"){
+						$html .= '<li>
+									<button type="submit" id="whrm-breakout-btn-'.esc_attr( $new_count ).'" data-counter="'.esc_attr( $new_count ).'" name="whrm-breakout-btn" class="btn btn-gradient-danger btn-mg whrm-breakout-btn">
+										<i class="fa fa-sign-out" aria-hidden="true"></i>'.esc_html__( "Break Out").'
+									</button>
+								</li>';
+						}
+					} elseif ( $all_breaks[$new_count]['date'] == date( 'Y-m-d') && !empty ( $all_breaks[$new_count]['break_in'] ) && !empty ( $all_breaks[$new_count]['break_out'] ) ) {
+						if($attendence->office_out === "00:00:00"){
+							$html .= '<li>
+										<button type="submit" id="whrm-breakin-btn-'.esc_attr( $counter ).'" data-counter="'.esc_attr( $counter ).'" name="whrm-breakin-btn" class="btn btn-gradient-success btn-mg whrm-breakin-btn" >
+										<i class="fa fa-sign-in" aria-hidden="true"></i>'.esc_html__( "Break In" ).'
+										</button>
+									</li>';
+						}
+					}
+					else {
+							if($attendence->office_out === "00:00:00") {
+								$html .= '<li>
+												<button type="submit" id="whrm-breakin-btn-'.esc_attr( $counter ).'" data-counter="'.esc_attr( $counter ).'" name="whrm-breakin-btn" class="btn btn-gradient-success btn-mg whrm-breakin-btn" >
+												<i class="fa fa-sign-in" aria-hidden="true"></i>'.esc_html__( "Break In" ).'
+												</button>
+											</li>';
+						}
+					}	
+				}
+				else {
+					$html .= '<li>
+								<button type="submit" id="whrm-breakin-btn-'.esc_attr( $counter ).'" data-counter="'.esc_attr( $counter ).'" name="whrm-breakin-btn" class="btn btn-gradient-success btn-mg whrm-breakin-btn" >
+								<i class="fa fa-sign-in" aria-hidden="true"></i>'.esc_html__( "Break In99" ).'
+								</button>
+							</li>';
+				}
+				$no = 1;
+			
+				// $duration_arr = array();
+				if ( ! empty ( $all_breaks ) ) {
+					// $all_breaks = get_option( 'ehrm_breakpoints' );			
+					$mu = count($all_breaks);
+					foreach ( $all_breaks as $key => $breaks ) {
+						
+						if ( $breaks['date'] == date( 'Y-m-d') && $breaks['user_id'] == get_current_user_id() ) {
+							//echo $no;
+							$html .='<div class="col-md-3 breakpoints-activities-div">
+										<ul>
+											<p>'.esc_html__( "Break Out").' '. esc_html( $no ).' </p>
+											<li>'.esc_html__( "Break In Time:-" ).' '. esc_html( $breaks['break_in'] ).' </li>
+											<li>'.esc_html__( "Break Out Time:-" ).' '. esc_html( $breaks['break_out'] ).' </li>
+											<li>'.esc_html__( "Break Duration Time:-" ).' '. esc_html( $breaks['break_time'] ).' </li>
+										</ul>
+									</div>';
+						$no++;
+						//echo $breaks['break_time'];
+						array_push( $duration_arr, $breaks['break_time'] );	
+						}
+						
+						//if($mu==$no) 
+						//break; //Break the loop when $count=$brk_val
 					}
 					
-					//if($mu==$no) 
-					//break; //Break the loop when $count=$brk_val
+					//echo EHRMHelperClass::break_time($duration_arr);
 				}
-				
-				//echo EHRMHelperClass::break_time($duration_arr);
-			}
+			}			
 		}
 		return $html;
 	}
@@ -1080,18 +1092,20 @@ class EHRMHelperClass {
 	 * @return html
 	 */
 	public static function ehrm_display_holidays() {
-		$all_holidays = get_option( 'ehrm_holidays_data' );
-		$all_dates   = self::ehrm_get_current_date_range();
-		$html        = '';
+		global $wpdb;
+		// $all_holidays = get_option( 'ehrm_holidays_data' );
+		$all_holidays = $wpdb->get_results( "SELECT * FROM " . EHRM_HOLIDAY );
+		$all_dates    = self::ehrm_get_current_date_range();
+		$html         = '';
 
 		foreach ( $all_dates as $key => $date ) {
 			if ( ! empty ( $all_holidays  ) ) {
-				foreach ( $all_holidays as $holiday_key => $holiday ) {
-					if ( $holiday['start'] == $date ) {
+				foreach ( $all_holidays as $holiday ) {
+					if ( $holiday->holiday_from == $date ) {
 						$html .= '<tr>
-				                    <td>'.esc_html( $holiday["name"] ).'</td>
-				                    <td>'.esc_html( "From ".date( self::get_date_format(), strtotime( $holiday['start'] ) )." to ".date( self::get_date_format(), strtotime( $holiday['to'] ) ) ).'</td>
-				                    <td>'.esc_html( $holiday["days"] ).'</td>
+				                    <td>'.esc_html( $holiday->holiday_name ).'</td>
+				                    <td>'.esc_html( "From ".date( self::get_date_format(), strtotime( $holiday->holiday_from ) )." to ".date( self::get_date_format(), strtotime( $holiday->holiday_to ) ) ).'</td>
+				                    <td>'.esc_html( $holiday->days ).'</td>
 				                  </tr>';
 					}
 				}
