@@ -157,7 +157,7 @@ $save_settings = get_option( 'ehrm_settings_data' );
                   <label for="daily_report"><?php esc_html_e( 'Submit your daily report', 'employee-&-hr-management' ); ?></label>
                   <textarea class="form-control" rows="6" id="daily_report" name="daily_report" placeholder="<?php esc_html_e( 'Content....', 'employee-&-hr-management' ); ?>"></textarea>
                 </div>
-                <input type="hidden" name="user_id" id="user_id" value="<?php echo esc_attr( get_current_user_id() ); ?>">
+                <input type="hidden" name="user_id" id="user_id" value="<?php echo esc_attr( EHRM_Helper::get_staff_id(get_current_user_id()) ); ?>">
                 <input type="button" class="btn btn-gradient-primary mr-2" id="daily_report_btn" value="<?php esc_html_e( 'Submit', 'employee-&-hr-management' ); ?>">
               </form>
             </div>

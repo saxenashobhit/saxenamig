@@ -230,7 +230,7 @@ class StaffDashBoardAction {
 			$reson         = sanitize_text_field( $_POST['reson'] );
 			$attendences   = get_option( 'ehrm_staff_attendence_data' );
 			$current_date  = date( 'Y-m-d' );
-			
+
 			$late_reason_update = EHRM_Helper::latereason($staff_id, $reson, $current_date );
 			if ( ! empty ( $late_reason_update ) && $late_reason_update == 1) {				
 				wp_send_json( esc_html__( 'Updated', 'employee-&-hr-management' ) );
@@ -244,23 +244,15 @@ class StaffDashBoardAction {
 		check_ajax_referer( 'staff_ajax_nonce', 'nounce' );
 		if ( isset ( $_POST['staff_id'] ) && isset ( $_POST['report'] ) ) {
 			$staff_id      = sanitize_text_field( $_POST['staff_id'] );
-			$report        = sanitize_text_field( $_POST['report'] );
-			$attendences   = get_option( 'ehrm_staff_attendence_data' );
+			$report        = sanitize_text_field( $_POST['report'] );			
 			$current_date  = date( 'Y-m-d' );
-
-			if ( ! empty ( $attendences ) ) {
-				foreach ( $attendences as $key => $attendence ) {
-					if ( $attendence['date'] == $current_date && $attendence['staff_id'] == $staff_id && ! empty ( $attendence['office_in'] ) ) {
-						$attendences = get_option( 'ehrm_staff_attendence_data' );
-						$attendences[$key]['report'] = $report;
-						if ( update_option( 'ehrm_staff_attendence_data', $attendences ) ) {
-							wp_send_json( esc_html__( 'Updated', 'employee-&-hr-management' ) );
-						} else {
-							wp_send_json( esc_html__( 'Something went wrong.!', 'employee-&-hr-management' ) );
-						}
-					}
-				}
+			$result = EHRM_Helper::daily_report( $staff_id, $report, $current_date );
+			if( ! empty($result) && $result === 1 ) {
+				wp_send_json( esc_html__( 'Updated', 'employee-&-hr-management' ) );
 			}
+			else {
+				wp_send_json( esc_html__( 'Something went wrong.!', 'employee-&-hr-management' ) );
+			}			
 		}
 	}
 	

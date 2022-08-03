@@ -218,7 +218,7 @@ class EHRM_DATABASE {
         $report_table = "CREATE TABLE IF NOT EXISTS " . EHRM_REPORT . " (
             id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
             report text DEFAULT NULL, 
-            report_date time DEFAULT NULL,
+            report_date date DEFAULT NULL,
             staff_id bigint(20) UNSIGNED NOT NULL,
             PRIMARY KEY (id),
             FOREIGN KEY (staff_id) REFERENCES " . EHRM_STAFF . " (id) ON DELETE CASCADE

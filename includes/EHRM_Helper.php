@@ -262,5 +262,22 @@ if( !class_exists('EHRM_Helper') ) {
             );
             return $success;
         }
+
+        /**
+         * @ insert the daily report of staff
+         * @ staff_id, report text and current date
+         * @ return success or failure message
+         */
+        public function daily_report($staff_id, $report, $currentDate)
+        {   
+            global $wpdb;
+            $report_data = [
+                'report' => $report,
+                'report_date' => $currentDate,
+                'staff_id'    => $staff_id
+            ];
+            $output = $wpdb->insert(EHRM_REPORT, $report_data);
+            return $output;
+        }
     }
 }
