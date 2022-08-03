@@ -270,7 +270,7 @@ add_action( 'wp_ajax_ehrm_login_dash_action', array( 'AdminDashBoardAction', 'cl
 add_action( 'wp_ajax_nopriv_ehrm_add_project_ajax', array( 'ProjectAjaxAction', 'add_projects' ) );
 add_action( 'wp_ajax_ehrm_add_project_ajax', array( 'ProjectAjaxAction', 'add_projects' ) );
 
-/* Project Edit actions */
+/* Project Edit actions fetch the data to a modal */
 add_action( 'wp_ajax_nopriv_ehrm_edit_project_ajax', array( 'ProjectAjaxAction', 'edit_projects' ) );
 add_action( 'wp_ajax_ehrm_edit_project_ajax', array( 'ProjectAjaxAction', 'edit_projects' ) );
 

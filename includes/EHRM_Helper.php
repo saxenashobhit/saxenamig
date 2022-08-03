@@ -235,5 +235,32 @@ if( !class_exists('EHRM_Helper') ) {
             $query = $wpdb->get_results( $wpdb->prepare("SELECT * FROM " . EHRM_STAFF_ATTENDANCE . " WHERE staff_id = %d", $id) );
             return $query;
         }
+
+        /**
+         * @ get the staff id from the get_current_user_id()
+         * @ return staff_id value
+         */
+        public static function get_staff_id($current_uid) {
+            global $wpdb;
+            $query = $wpdb->get_var($wpdb->prepare( "SELECT st.id FROM " . EHRM_STAFF . " as st WHERE st.user_id=%d", $current_uid ));
+            return $query;
+        }
+
+        /**
+         * @ update the attendance table with late reason
+         * @ return query status
+         */
+        public static function latereason( $staff_id, $late_reason, $current_date ) {
+            global $wpdb;
+            $success = $wpdb->update(
+                EHRM_STAFF_ATTENDANCE,
+                ['late_reason' => $late_reason],
+                array( 
+                    'staff_id' => $staff_id,
+                    'attendance_date' => $current_date
+                     )
+            );
+            return $success;
+        }
     }
 }

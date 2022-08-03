@@ -30,9 +30,9 @@ class AdminDashBoardAction {
 				$office_in    = date( "H:i:s", strtotime( $current_time ) );
 
                 if ( $office_in > $late_time ) {
-					$late = 'Late';
+					$late = '1';
 				} else {
-					$late = 'On time';
+					$late = '0';
 				}
 
                 $data = array(

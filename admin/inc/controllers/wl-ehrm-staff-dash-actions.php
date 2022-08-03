@@ -230,20 +230,13 @@ class StaffDashBoardAction {
 			$reson         = sanitize_text_field( $_POST['reson'] );
 			$attendences   = get_option( 'ehrm_staff_attendence_data' );
 			$current_date  = date( 'Y-m-d' );
-
-			if ( ! empty ( $attendences ) ) {
-				foreach ( $attendences as $key => $attendence ) {
-					if ( $attendence['date'] == $current_date && $attendence['staff_id'] == $staff_id && ! empty ( $attendence['office_in'] ) ) {
-						$attendences = get_option( 'ehrm_staff_attendence_data' );
-						$attendences[$key]['late_reson'] = $reson;
-						if ( update_option( 'ehrm_staff_attendence_data', $attendences ) ) {
-							wp_send_json( esc_html__( 'Updated', 'employee-&-hr-management' ) );
-						} else {
-							wp_send_json( esc_html__( 'Something went wrong.!', 'employee-&-hr-management' ) );
-						}
-					}
+			
+			$late_reason_update = EHRM_Helper::latereason($staff_id, $reson, $current_date );
+			if ( ! empty ( $late_reason_update ) && $late_reason_update == 1) {				
+				wp_send_json( esc_html__( 'Updated', 'employee-&-hr-management' ) );
+			} else {
+					wp_send_json( esc_html__( 'Something went wrong.!', 'employee-&-hr-management' ) );
 				}
-			}
 		}
 	}
 

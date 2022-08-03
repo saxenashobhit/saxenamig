@@ -23,4 +23,5 @@ define( 'EHRM_NOTICE',  $wpdb->base_prefix . 'ehrm_notice' );
 define( 'EHRM_HOLIDAY',  $wpdb->base_prefix . 'ehrm_holiday' );
 define( 'EHRM_BREAK',  $wpdb->base_prefix . 'ehrm_breaks' );
 define( 'EHRM_USER_TABLE',  $wpdb->base_prefix . 'users' );
+define( 'EHRM_REPORT',  $wpdb->base_prefix . 'ehrm_report' );
 // define( 'EHRM_',  $wpdb->base_prefix . '' );

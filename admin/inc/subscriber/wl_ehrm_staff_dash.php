@@ -1,6 +1,7 @@
 <?php
 defined( 'ABSPATH' ) or die();
 require_once( WL_EHRM_PLUGIN_DIR_PATH . '/admin/inc/helpers/wl-ehrm-helper.php' );
+require_once WL_EHRM_PLUGIN_DIR_PATH . 'includes/EHRM_Helper.php';
 $save_settings = get_option( 'ehrm_settings_data' );
 ?>
 <!-- partial -->
@@ -132,7 +133,10 @@ $save_settings = get_option( 'ehrm_settings_data' );
                   <label for="late_resonn"><?php esc_html_e( 'Enter your reson to come late today', 'employee-&-hr-management' ); ?></label>
                   <textarea class="form-control" rows="6" id="late_resonn" name="late_resonn" placeholder="<?php esc_html_e('Content....', 'employee-&-hr-management'); ?>"></textarea>
                 </div>
-                <input type="hidden" name="staff_id" id="staff_id" value="<?php echo esc_attr(get_current_user_id()); ?>">
+                <?php 
+                  // $a = EHRM_Helper::get_staff_id(get_current_user_id());                 
+                ?>
+                <input type="text" name="staff_id" id="staff_id" value="<?php echo esc_attr(EHRM_Helper::get_staff_id(get_current_user_id())); ?>">
                 <input type="button" class="btn btn-gradient-primary mr-2" id="late_reson_submit_btn" value="<?php esc_html_e('Submit', 'employee-&-hr-management'); ?>">
               </form>
             </div>
