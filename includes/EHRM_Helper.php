@@ -237,8 +237,18 @@ if( !class_exists('EHRM_Helper') ) {
         }
 
         /**
-         * @ get the staff id from the get_current_user_id()
-         * @ return staff_id value
+         * @param $id staff id from the staff table id, and current date
+         * @return object staff attendance data as object according to current date
+         */
+        public static function staff_attendance_data_current_date( $id, $currentDate ) {
+            global $wpdb;
+            $query = $wpdb->get_results( $wpdb->prepare("SELECT * FROM " . EHRM_STAFF_ATTENDANCE . " WHERE staff_id = %d AND attendance_date=%s", $id, $currentDate) );
+            return $query;
+        }
+
+        /**
+         * @get the staff id from the get_current_user_id()
+         * @return staff_id value
          */
         public static function get_staff_id($current_uid) {
             global $wpdb;
@@ -247,8 +257,8 @@ if( !class_exists('EHRM_Helper') ) {
         }
 
         /**
-         * @ update the attendance table with late reason
-         * @ return query status
+         * @update the attendance table with late reason
+         * @return query status
          */
         public static function latereason( $staff_id, $late_reason, $current_date ) {
             global $wpdb;
@@ -264,20 +274,39 @@ if( !class_exists('EHRM_Helper') ) {
         }
 
         /**
-         * @ insert the daily report of staff
+         * @ update the daily report in the attendance table
          * @ staff_id, report text and current date
          * @ return success or failure message
          */
-        public function daily_report($staff_id, $report, $currentDate)
+        public static function daily_report($staff_id, $report, $currentDate)
         {   
             global $wpdb;
-            $report_data = [
-                'report' => $report,
-                'report_date' => $currentDate,
-                'staff_id'    => $staff_id
-            ];
-            $output = $wpdb->insert(EHRM_REPORT, $report_data);
+            $output = $wpdb->update(
+                EHRM_STAFF_ATTENDANCE,
+                ['report' => $report],
+                array( 
+                    'staff_id' => $staff_id,
+                    'attendance_date' => $currentDate, 
+                )
+            );
             return $output;
+        }
+
+        /**
+         * @Insert the breaks in the break table
+         * @staff id from staff table, current date and time of break
+         * @return success or failure messgae
+         */
+        public static function employee_break( $staff_id, $currentDate, $breakInTime) {
+            global $wpdb;            
+            $break_data = [
+                'staff_id'   => $staff_id,
+                'break_in'   => $breakInTime,
+                'break_out'  => '',
+                'break_date' => $currentDate               
+            ];
+            $output = $wpdb->insert(EHRM_BREAK, $break_data);
+            return $output;            
         }
     }
 }

@@ -763,21 +763,20 @@ class EHRMHelperClass {
 	 * @return html
 	 */
 	public static function ehrm_staff_action_clock_buttons() {
-		
-		//$attendences   = get_option( 'ehrm_staff_attendence_data' );
 		global $wpdb;
 		$user_id       = get_current_user_id();
+		$current_date  = date( 'Y-m-d' );
 		$staff_id	   = EHRM_Helper::fetch_staff_id_stafftable( $user_id );
-		$attendences   = EHRM_Helper::staff_attendance_data( $staff_id->id );
+		// $attendences   = EHRM_Helper::staff_attendance_data( $staff_id->id );
+		$attendences   = EHRM_Helper::staff_attendance_data_current_date( $staff_id->id, $current_date );
 		// echo "<pre>";
 		// var_dump($attendences);
 		// echo "</pre>";
 		$html          = '';
-		$current_date  = date( 'Y-m-d' );
+		
 		$absent_days   = self::ehrm_total_absents();
 		$save_settings = get_option( 'ehrm_settings_data' );
-
-		$save_settings = get_option('ehrm_settings_data');
+		// $save_settings = get_option('ehrm_settings_data');
 
         $officein_text  = isset($save_settings['officein_text']) ? sanitize_text_field($save_settings['officein_text']) : __('Office In', '"employee-&-hr-management"');
         $officeout_text = isset($save_settings['officeout_text']) ? sanitize_text_field($save_settings['officeout_text']) : __('Office Out', '"employee-&-hr-management"');
@@ -845,16 +844,15 @@ class EHRMHelperClass {
 
 				//echo $staff_id->id;
 				// $all_breaks = get_option( 'ehrm_breakpoints' );
-				$all_breaks = $wpdb->get_results( $wpdb->prepare("SELECT * FROM " . EHRM_BREAK . " WHERE staff_id=%d", $staff_id->id) );
-					// echo "<pre>"; print_r($all_breaks); echo "</pre>"; //die();
-					//$html       = '';
+				$all_breaks = $wpdb->get_results( $wpdb->prepare("SELECT * FROM " . EHRM_BREAK . " WHERE staff_id=%d AND break_date=%s", $staff_id->id, $current_date) );
+				//echo "<pre>"; print_r($all_breaks); echo "</pre>"; //die();
+				//$html = '';
 				$counter    = 0;
-				
 				if ( count( $all_breaks ) > 0 ) {
 					//echo "<pre>"; var_dump($all_breaks); echo "</pre>";
 					$key = 1;
 					foreach ( $all_breaks as $breaks ) {							
-						if ( $breaks->brek_date == date( 'Y-m-d') ) {
+						if ( $breaks->break_date == date( 'Y-m-d') ) {
 							$counter = $key;
 						}
 					}						
@@ -895,6 +893,7 @@ class EHRMHelperClass {
 								</button>
 							</li>';
 				}
+				
 				$no = 1;
 			
 				// $duration_arr = array();
@@ -903,8 +902,7 @@ class EHRMHelperClass {
 					$mu = count($all_breaks);
 					foreach ( $all_breaks as $key => $breaks ) {
 						
-						if ( $breaks['date'] == date( 'Y-m-d') && $breaks['user_id'] == get_current_user_id() ) {
-							//echo $no;
+						if ( $breaks['date'] == date( 'Y-m-d') && $breaks['user_id'] == get_current_user_id() ) {							
 							$html .='<div class="col-md-3 breakpoints-activities-div">
 										<ul>
 											<p>'.esc_html__( "Break Out").' '. esc_html( $no ).' </p>
@@ -913,16 +911,10 @@ class EHRMHelperClass {
 											<li>'.esc_html__( "Break Duration Time:-" ).' '. esc_html( $breaks['break_time'] ).' </li>
 										</ul>
 									</div>';
-						$no++;
-						//echo $breaks['break_time'];
+						$no++;						
 						array_push( $duration_arr, $breaks['break_time'] );	
 						}
-						
-						//if($mu==$no) 
-						//break; //Break the loop when $count=$brk_val
-					}
-					
-					//echo EHRMHelperClass::break_time($duration_arr);
+					}					
 				}
 			}			
 		}
@@ -1435,7 +1427,9 @@ class EHRMHelperClass {
 		if ( empty( $user_id ) ) {
 			$user_id = get_current_user_id();
 		}
-		$attendences = get_option( 'ehrm_staff_attendence_data' );
+		// $attendences = get_option( 'ehrm_staff_attendence_data' );
+		$staff_id	   = EHRM_Helper::fetch_staff_id_stafftable( $user_id );
+		$attendences   = EHRM_Helper::staff_attendance_data( $staff_id->id );
 
 		if ( empty ( $first ) && empty ( $last ) ) {
 			$all_dates = self::ehrm_get_date_range( date( 'Y-m-01' ), date( 'Y-m-t' ) );
@@ -1444,11 +1438,15 @@ class EHRMHelperClass {
 		}
 		
 		$count_days = 0;
-
+		// foreach ( $attendences as $attendence ) { 
+		// 	echo $attendence->attendance_date;
+		// }
+		// die();
+		
 		foreach ( $all_dates as $key => $date) {
-			if ( ! empty( $attendences ) ) {
+			if ( ! empty( $attendences ) ) {				
 				foreach ( $attendences as $key => $attendence ) {
-					if ( $attendence['date'] == $date && $attendence['staff_id'] == $user_id && ! empty( $attendence['office_in'] ) ) {
+					if ( $attendence->attendance_date == $date && $attendence->staff_id == $staff_id && ! empty( $attendence->office_in ) ) {
 						$count_days++;
 					}
 				}
@@ -1691,8 +1689,9 @@ class EHRMHelperClass {
 		$half_working_days = self::half_working_days( $start, $last );
 		$total_absents     = self::ehrm_total_absents( $staff_id, $start, $last, true );
 		$total_absents     = sizeof( $total_absents['dates1'] );
-		$total_presents    = self:: ehrm_total_attendance_count( $staff_id, $start, $last );
-		$all_staffs_data   = get_option( 'ehrm_staffs_data' );
+		$total_presents    = self::ehrm_total_attendance_count( $staff_id, $start, $last );
+		// $all_staffs_data   = get_option( 'ehrm_staffs_data' );
+		$staffs_data       = get_option( 'ehrm_staffs_data' );
 		$html              = '';
 		$savesetting       = get_option( 'ehrm_settings_data' );
 
@@ -1701,9 +1700,15 @@ class EHRMHelperClass {
 		$dteEnd   	 = new DateTime( $savesetting['halfday_end'] );
 		$dteDiff  	 = $dteStart->diff( $dteEnd );
 		$HalfDayHour = $dteDiff->format( "%H" );
-
+		$leaves = 0;
+		$salary = 0;
+		// the current user id is passing as:- $staff_id;
+		// The staff id from the staff table
+		$staff_table_id = EHRM_Helper::get_staff_id($staff_id);
+		//The attendance table data from the STAFF_ATTENDANCE TABLE
+		$all_staff_data =  EHRM_Helper::staff_attendance_data($staff_table_id);
 		/** Staff's data **/
-		if ( ! empty( $all_staffs_data ) ) {
+		/*if ( ! empty( $all_staffs_data ) ) {
 			foreach ( $all_staffs_data as $key => $staffs ) {
 				if ( $staffs['ID'] == $staff_id ) {
 					$salary      = $staffs['salary'];
@@ -1729,6 +1734,36 @@ class EHRMHelperClass {
 					$dteDiff  	    = $dteStart->diff( $dteEnd );
 					$EstWorkingHour = $dteDiff->format( "%H" );
 				}
+			}
+		}*/
+
+		if ( ! empty( $all_staff_data ) ) {
+			foreach ( $all_staff_data as $key => $staffs ) {
+				var_dump($staffs);
+				// if ( $staffs['ID'] == $staff_id ) {
+					/*$salary      = $staffs['salary'];
+					$shift_start = $staffs['shift_start'];
+					$shift_end   = $staffs['shift_end'];
+					$all_leaves  = unserialize( $staffs['leave_value'] );
+					$size        = sizeof( $all_leaves );
+					$leaves      = 0;
+
+					if ( ! empty ( $all_leaves ) ) {
+						for ( $i = 0; $i < $size; $i++ ) {
+							if($all_leaves[$i] == ""){
+								$leaves = $leaves+0;
+							}else{
+								$leaves = $leaves+$all_leaves[$i];
+							}
+							
+						}
+					}
+					
+					$dteStart 	    = new DateTime( $shift_start );
+					$dteEnd   	    = new DateTime( $shift_end );
+					$dteDiff  	    = $dteStart->diff( $dteEnd );
+					$EstWorkingHour = $dteDiff->format( "%H" );*/
+				// }
 			}
 		}
 

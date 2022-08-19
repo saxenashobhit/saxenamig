@@ -42,9 +42,9 @@ class StaffDashBoardAction {
 				$office_in    = $current_time;
 
 				if ( $office_in > $late_time ) {
-					$late = 'Late';
+					$late = '1';
 				} else {
-					$late = 'On time';
+					$late = '0';
 				}
 
 				$current_user_id      = get_current_user_id();
@@ -75,7 +75,8 @@ class StaffDashBoardAction {
 					$message = esc_html__( 'Your Office In Time is', 'employee-&-hr-management' ).' '.esc_html( date( EHRMHelperClass::get_time_format(), strtotime( $current_time ) ) );
 					$status  = 'success';
 					// EHRMHelperClass::ehrm_shoot_mail_staff_details( get_current_user_id(), $current_time, '', EHRMHelperClass::get_user_location( $_SERVER['REMOTE_ADDR'] ), $_SERVER['REMOTE_ADDR'] );
-					EHRMHelperClass::ehrm_shoot_mail_staff_details( $current_time, '', EHRMHelperClass::get_user_location( $_SERVER['REMOTE_ADDR'] ), $_SERVER['REMOTE_ADDR'], get_current_user_id() );
+					//make comment on 4 Aug 2022 make it shoots the email on the office in and out
+					// EHRMHelperClass::ehrm_shoot_mail_staff_details( $current_time, '', EHRMHelperClass::get_user_location( $_SERVER['REMOTE_ADDR'] ), $_SERVER['REMOTE_ADDR'], get_current_user_id() );
 
 				} else {
 					$message = esc_html__( 'Something went wrong.!', 'employee-&-hr-management' );
@@ -262,10 +263,10 @@ class StaffDashBoardAction {
 		if ( isset ( $_POST['counter'] ) ) {
 	
 		$ehrm_settings = get_option('ehrm_settings_data');	
-		$counter      = 0;
-		$all_breaks   = get_option( 'ehrm_breakpoints' );
-		$date         = date('Y-m-d');
-		$current_user = get_current_user_id();
+		$counter       = 0;
+		$all_breaks    = get_option( 'ehrm_breakpoints' );
+		$date          = date('Y-m-d');
+		$current_user  = get_current_user_id();
 		
 		if ( ! empty ( $all_breaks ) ) {
 
