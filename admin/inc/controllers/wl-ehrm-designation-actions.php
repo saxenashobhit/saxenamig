@@ -8,25 +8,37 @@ require WL_EHRM_PLUGIN_DIR_PATH . 'includes/EHRM_Helper.php';
 class DesignationsAjaxAction {
 
 	public static function add_department() {
-		check_ajax_referer( 'backend_ajax_nonce', 'nounce' );
-
-		if ( isset( $_POST['deparment'] ) && ! empty( $_POST['deparment'] ) ) {
-			
+		check_ajax_referer( 'backend_ajax_nonce', 'nounce' );		
+		if ( isset( $_POST['deparment'] ) && ! empty( $_POST['deparment'] ) ) {			
 			$no_of_department_input = count($_POST['deparment']);
+			$query_flag = 0;
 			for( $i = 0; $i<$no_of_department_input; $i++ ) {
 				$deparment 		  = sanitize_text_field( $_POST['deparment'][$i] );
 				$department_descp = sanitize_text_field( $_POST['department_descp'][$i] );
 				$department_head  = sanitize_text_field( $_POST['department_head'][$i] );			
-				EHRM_Helper::department_query($deparment, $department_descp, $department_head);
-			}
-			
+				if (EHRM_Helper::department_query($deparment, $department_descp, $department_head) ) {
+					$query_flag = 1;
+				} 
+				$query_flag++;				
+			}			
 			// $deparment    = serialize( $_POST['deparment'] );
 			$html         = '';
+			if($query_flag >= 1) {
+				$status  = 'success';
+				$message = __( 'Department added successfully!', 'employee-&-hr-management' );
+				// $content = wp_kses_post( $html );
+				$content = wp_kses_post( '' );
+			}
+			else {
+				$status  = 'error';
+				$message = __( 'Department not added!', 'employee-&-hr-management' );
+				$content = '';
+			}
 			// $departments  = unserialize( $deparment );
 
 			$deparment_fetch_result = EHRM_Helper::department_fetch_query();
 			
-			if ( update_option( 'ehrm_departments_data', $departments ) ) {
+			/*if ( update_option( 'ehrm_departments_data', $departments ) ) {
 
 				$all_departments = get_option( 'ehrm_departments_data' );
 
@@ -47,7 +59,7 @@ class DesignationsAjaxAction {
 				$status  = 'error';
 				$message = __( 'Department not added!', 'employee-&-hr-management' );
 				$content = '';
-			}
+			}*/
 
 		} else {
 
@@ -83,24 +95,23 @@ class DesignationsAjaxAction {
 			$status       = sanitize_text_field( $_POST['status'] );
 			//$designations = get_option( 'ehrm_designations_data' );
 			$html         = '';
-			// $add_designation_query = EHRM_Helper::add_designation( $deparment, $name, $color, $status );
-			
-			if( EHRM_Helper::add_designation( $deparment, $name, $color, $status ) ) {
-				// $all_designations = get_option( 'ehrm_designations_data' );
+			//echo EHRM_Helper::add_designation( $deparment, $name, $color, $status );						
+			if( 1 === EHRM_Helper::add_designation( $deparment, $name, $color, $status ) ) {
+				
 				$all_designations = EHRM_Helper::fetch_designation();
 				// echo "<pre>";
 				// var_dump( $all_designations );
 				// echo "</pre>";
 				if ( ! empty ( $all_designations ) ) {
             		$sno = 1;
-            		foreach ( $all_designations as $key => $designation ) {
-            	
+            		foreach ( $all_designations as $key => $designation ) {  
+						// var_dump($designation);
 		                $html .= '<tr>
 				                	<td>'.esc_html( $sno ).'.</td>
-				                  	<td>'.esc_html( $designation['name'] ).'</td>
-				                  	<td>'.esc_html( $designation['deparment'] ).'</td>
-				                  	<td><label class="badge" style="background-color:'.esc_attr( $designation['color'] ).';">'.esc_attr( $designation['color'] ).'</label></td>
-				                  	<td>'.esc_html( $designation['status'] ).'</td>
+				                  	<td>'.esc_html( $designation->name ).'</td>
+				                  	<td>'.esc_html( $designation->deparment ).'</td>
+				                  	<td><label class="badge" style="background-color:'.esc_attr( $designation->color ).';">'.esc_attr( $designation->color ).'</label></td>
+				                  	<td>'.esc_html( $designation->status ).'</td>
 				                  	<td class="designation-action-tools">
 		                          		<ul class="designation-action-tools-ul">
 		                          			<li class="designation-action-tools-li">
@@ -128,7 +139,6 @@ class DesignationsAjaxAction {
 				$message = __( 'Designation not added!', 'employee-&-hr-management' );
 				$content = '';
 			}
-
 		} else {
 
 			if ( empty ( $_POST['deparment'] ) ) {
@@ -231,17 +241,20 @@ class DesignationsAjaxAction {
 	/* Delete Designations Action Call */
 	public static function delete_designations() {
 		check_ajax_referer( 'backend_ajax_nonce', 'nounce' );
-
+		global $wpdb;
+		
 		if ( ! empty ( $_POST['key'] ) ) {
 			$key          = sanitize_text_field( $_POST['key'] );
-			$designations = get_option( 'ehrm_designations_data' );
+			$delete_process = $wpdb->query("DELETE FROM EHRM_DESIGNATION WHERE `id`=$key");
+			//$designations = get_option( 'ehrm_designations_data' );
 			$html         = '';
 
-			unset($designations[$key]);
+			//unset($designations[$key]);
 
-			if ( update_option( 'ehrm_designations_data', $designations ) ) {
+			if ( $delete_process == 1 ) {
 
-				$designations = get_option( 'ehrm_designations_data' );
+				//$designations = get_option( 'ehrm_designations_data' );
+				$designation = EHRM_Helper::department_fetch_query();
 
 				if ( ! empty ( $designations ) ) {
             		$sno = 1;
@@ -249,10 +262,10 @@ class DesignationsAjaxAction {
             	
 		                $html .= '<tr>
 				                	<td>'.esc_html( $sno ).'.</td>
-				                  	<td>'.esc_html( $designation['name'] ).'</td>
-				                  	<td>'.esc_html( $designation['deparment'] ).'</td>
-				                  	<td><label class="badge" style="background-color:'.esc_attr( $designation['color'] ).';">'.esc_attr( $designation['color'] ).'</label></td>
-				                  	<td>'.esc_html( $designation['status'] ).'</td>
+				                  	<td>'.esc_html( $designation->name ).'</td>
+				                  	<td>'.esc_html( $designation->deparment ).'</td>
+				                  	<td><label class="badge" style="background-color:'.esc_attr( $designation['color'] ).';">'.esc_attr( $designation->color ).'</label></td>
+				                  	<td>'.esc_html( $designation->status ).'</td>
 				                  	<td class="designation-action-tools">
 		                          		<ul class="designation-action-tools-ul">
 		                          			<li class="designation-action-tools-li">

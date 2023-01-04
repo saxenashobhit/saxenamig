@@ -697,7 +697,8 @@ class EHRMHelperClass {
 		// $attendences   = get_option( 'ehrm_staff_attendence_data' );
 		$staff_id	   = EHRM_Helper::fetch_staff_id_stafftable( $user_id );
 		$attendences   = EHRM_Helper::staff_attendance_data( $staff_id->id );
-		$all_holidays  = EHRMHelperClass::ehrm_all_holidays();
+		// $all_holidays  = EHRMHelperClass::ehrm_all_holidays();
+		$all_holidays  = EHRM_Helper::ehrm_all_holiday_list();
 		$present_days1 = array();
 		$present_days2 = array();
 		$present_days3 = array();
@@ -1708,7 +1709,7 @@ class EHRMHelperClass {
 		//The attendance table data from the STAFF_ATTENDANCE TABLE
 		$all_staff_data =  EHRM_Helper::staff_attendance_data($staff_table_id);
 		/** Staff's data **/
-		/*if ( ! empty( $all_staffs_data ) ) {
+		/*if ( ! empty( $all_staffs_data ) ) {	
 			foreach ( $all_staffs_data as $key => $staffs ) {
 				if ( $staffs['ID'] == $staff_id ) {
 					$salary      = $staffs['salary'];
@@ -1739,7 +1740,32 @@ class EHRMHelperClass {
 
 		if ( ! empty( $all_staff_data ) ) {
 			foreach ( $all_staff_data as $key => $staffs ) {
-				var_dump($staffs);
+				// echo "<pre>";
+				// var_dump($staffs);
+				// echo "</pre>";
+				$staff_id = $staffs->staff_id;
+				$shift_start = $staffs->start_time; 
+				$shift_end   = $staffs->end_time; 
+				$salary      = $staffs->amount; 
+				$office_in   = $staffs->office_in; 
+				$office_out  = $staffs->office_out;
+				$lunch_in    = $staffs->lunch_in;
+				$lunch_out   = $staffs->lunch_out; 
+				$pay_type    = $staffs->pay_type;
+
+				//calculate the working hours
+				$dteStart 	    = new DateTime( $shift_start );
+				$dteEnd   	    = new DateTime( $shift_end );
+				$dteDiff  	    = $dteStart->diff( $dteEnd );
+				$EstWorkingHour = $dteDiff->format( "%H" );
+				$leaves      = 0;
+				// var_dump($EstWorkingHour); 
+				// echo $EstWorkingHour;
+
+				// $ = $staffs->
+				// $ = $staffs->
+				// $ = $staffs->
+				// $shift_id = $staffs->shift_id;
 				// if ( $staffs['ID'] == $staff_id ) {
 					/*$salary      = $staffs['salary'];
 					$shift_start = $staffs['shift_start'];
@@ -1766,9 +1792,9 @@ class EHRMHelperClass {
 				// }
 			}
 		}
-
 		if ( $type == 'Monthly' ) {
-
+		// if ( $type == '1' ) {
+			// echo $full_working_days;
 			/* Total Working Days */
 			$total_working_days = ( $full_working_days + $half_working_days ) - $leaves;
 
@@ -1805,9 +1831,9 @@ class EHRMHelperClass {
 						<td>' . esc_html__( 'This Month Total Unpaid salary', '"employee-&-hr-management"' ) . ' [ ' . esc_html( round( $PerDaySalary ) ) . ' X ' . esc_html( $total_absents ) . ']</td>
 						<td class="right-td">' . esc_html( self::get_currency_position_html( round( $UnpaidSalary ) ) ) . '</td>
 					 </tr>';
-
+			echo $total_presents;
 			$TotalSalary  = self::get_currency_position_html( round( $PerDaySalary*$total_presents ) );
-			$TotalSalary1 = round( $PerDaySalary*$total_presents );
+		 	$TotalSalary1 = round( $PerDaySalary*$total_presents );
 
 			$html .= '<tr class="final-result-tr">
 						<td>' . esc_html__( 'Total Paid Salary as per total attendance', '"employee-&-hr-management"') . ' [ ' . esc_html( round( $PerDaySalary ) ) . ' X ' . esc_html( $total_presents ) . ' ]</td>

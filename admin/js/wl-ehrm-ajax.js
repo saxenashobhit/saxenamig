@@ -48,7 +48,7 @@ jQuery(document).ready(function () {
                         toastr.error(response.message);
                     } else {
                         toastr.success(response.message);
-                        //location.reload();
+                        location.reload();
                     }   
                 }
             }

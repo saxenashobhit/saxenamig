@@ -37,7 +37,7 @@ if( !class_exists('EHRM_Helper') ) {
                 'status'        => $status,
                 'department_id' => $department_id,
             ];
-            $wpdb->insert( EHRM_DESIGNATION, $designation );
+            return $wpdb->insert( EHRM_DESIGNATION, $designation );
         }
 
         /**
@@ -58,7 +58,7 @@ if( !class_exists('EHRM_Helper') ) {
                 array( 'id' => $designation_id )
             );
             return $success;
-        }
+        }        
 
         /**
          * Save the shift
@@ -232,7 +232,8 @@ if( !class_exists('EHRM_Helper') ) {
          */
         public static function staff_attendance_data( $id ) {
             global $wpdb;
-            $query = $wpdb->get_results( $wpdb->prepare("SELECT * FROM " . EHRM_STAFF_ATTENDANCE . " WHERE staff_id = %d", $id) );
+            // $query = $wpdb->get_results( $wpdb->prepare("SELECT * FROM " . EHRM_STAFF_ATTENDANCE . " WHERE staff_id = %d", $id) );
+            $query = $wpdb->get_results( $wpdb->prepare( 'SELECT sa.*, s.shift_id, s.pay_type, s.amount, sh.start_time, sh.end_time FROM ' . EHRM_STAFF_ATTENDANCE . ' as sa JOIN ' . EHRM_STAFF . ' as s ON sa.staff_id = s.id JOIN '. EHRM_SHIFTS . ' as sh ON s.shift_id = sh.id WHERE sa.staff_id = %d', $id) ); 
             return $query;
         }
 
@@ -253,6 +254,16 @@ if( !class_exists('EHRM_Helper') ) {
         public static function get_staff_id($current_uid) {
             global $wpdb;
             $query = $wpdb->get_var($wpdb->prepare( "SELECT st.id FROM " . EHRM_STAFF . " as st WHERE st.user_id=%d", $current_uid ));
+            return $query;
+        }
+
+        /**
+         * @ Get all the holidays
+         * @return array of the hoidays
+         */
+        public static function ehrm_all_holiday_list() {
+            global $wpdb;
+            $query = $wpdb->get_results( "SELECT * FROM " . EHRM_HOLIDAY );
             return $query;
         }
 
@@ -307,6 +318,6 @@ if( !class_exists('EHRM_Helper') ) {
             ];
             $output = $wpdb->insert(EHRM_BREAK, $break_data);
             return $output;            
-        }
-    }
+        }        
+    }    
 }
