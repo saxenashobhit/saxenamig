@@ -245,7 +245,7 @@ class DesignationsAjaxAction {
 		
 		if ( ! empty ( $_POST['key'] ) ) {
 			$key          = sanitize_text_field( $_POST['key'] );
-			$delete_process = $wpdb->query("DELETE FROM EHRM_DESIGNATION WHERE `id`=$key");
+			$delete_process = EHRM_Helper::deletDesignation($key);
 			//$designations = get_option( 'ehrm_designations_data' );
 			$html         = '';
 

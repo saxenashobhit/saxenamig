@@ -150,6 +150,14 @@ if( !class_exists('EHRM_Helper') ) {
         }
 
         /**
+         * Delete designation
+         */
+        public static function deletDesignation( $id ) {
+            global $wpdb;
+            return $wpdb->query('DELETE FROM ' . EHRM_DESIGNATION . ' WHERE `id`=' . $id);
+        }
+
+        /**
          * Fetch designation according to id
          */
         public static function fetch_designation_id( $id ) {
