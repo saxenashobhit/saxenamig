@@ -63,14 +63,12 @@ class ShiftAjaxActions {
 
 		if ( isset ( $_POST['shift_key'] ) ) {
 			$shift_key = sanitize_text_field( $_POST['shift_key'] );
-			$shifts    = get_option( 'ehrm_shifts_data' );
+			$result = EHRM_Helper::deleteShift($shift_key);
+			//$shifts    = get_option( 'ehrm_shifts_data' );
 
-			unset( $shifts[$shift_key] );
-
-			if ( update_option( 'ehrm_shifts_data', $shifts ) ) {
-
-				$all_shifts = get_option( 'ehrm_shifts_data' );
-
+			if ( $result === 1 ) {
+				$all_shifts = EHRM_Helper::fetch_shift_data();
+				
 				$staff_no = 0;
 
 				if ( ! empty ( $all_shifts ) ) {
@@ -79,12 +77,12 @@ class ShiftAjaxActions {
             	
 		                $html .= '<tr>
 				                	<td>'.esc_html( $sno ).'</td>
-				                  	<td>'.esc_html( $shift['name'] ).'</td>
-				                  	<td>'.esc_html( date( EHRMHelperClass::get_time_format(), strtotime( $shift['start'] ) ) ).'</td>
-				                  	<td>'.esc_html( date( EHRMHelperClass::get_time_format(), strtotime( $shift['end'] ) ) ).'</td>
-				                  	<td>'.esc_html( date( EHRMHelperClass::get_time_format(), strtotime( $shift['late'] ) ) ).'</td>
+				                  	<td>'.esc_html( $shift->name ).'</td>
+				                  	<td>'.esc_html( date( EHRMHelperClass::get_time_format(), strtotime( $shift->start_time ) ) ).'</td>
+				                  	<td>'.esc_html( date( EHRMHelperClass::get_time_format(), strtotime( $shift->end_time ) ) ).'</td>
+				                  	<td>'.esc_html( date( EHRMHelperClass::get_time_format(), strtotime( $shift->late_time ) ) ).'</td>
 				                  	<td>'.esc_html( $staff_no ).'</td>
-				                  	<td>'.esc_html( $shift['status'] ).'</td>
+				                  	<td>'.esc_html( $shift->status ).'</td>
 				                  	<td class="designation-action-tools">
 		                          		<ul class="designation-action-tools-ul">
 		                          			<li class="designation-action-tools-li">

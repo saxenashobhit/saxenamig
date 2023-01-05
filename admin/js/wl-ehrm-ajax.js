@@ -620,13 +620,14 @@ jQuery(document).ready(function () {
                     } else {
                         toastr.success(response.message);                      
                         jQuery('#AddShift').modal('hide');
-                        jQuery('#shift_tbody').empty();
-                        jQuery('#shift_tbody').append(response.content);
+                        //jQuery('#shift_tbody').empty();
+                        //jQuery('#shift_tbody').append(response.content);
                         jQuery( '#add_shift_form #shift_name' ).val('');
                         jQuery( '#add_shift_form #shift_start' ).val('');
                         jQuery( '#add_shift_form #shift_end' ).val('');
                         jQuery( '#add_shift_form #shift_late' ).val('');
                         jQuery( '#add_shift_form #shift_status' ).val('');
+                        location.reload();
                     }   
                 }
             }

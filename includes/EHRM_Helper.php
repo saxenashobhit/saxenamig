@@ -194,6 +194,12 @@ if( !class_exists('EHRM_Helper') ) {
             return $query;
         }
 
+        // Delete the shift
+        public static function deleteShift($id) {
+            global $wpdb;
+            return $wpdb->query('DELETE FROM ' . EHRM_SHIFTS . ' WHERE `id`=' . $id);
+        }
+
         //check the staff is exist or not
         public static function check_staff_existance( $id ) {
             global $wpdb;
@@ -222,6 +228,12 @@ if( !class_exists('EHRM_Helper') ) {
             // $query = $wpdb->get_row( $wpdb->prepare( 'SELECT *  FROM ' . EHRM_STAFF . ' as s WHERE s.id=' . $staff_id ) );
             $query = $wpdb->get_row( $wpdb->prepare( 'SELECT s.id, s.first_name, s.last_name, s.email,s.phone_no, s.dob, s.address, s.shift_id, s.designation_id, s.pay_type,s.amount,s.leaves,s.description, s.user_id, s.status, ut.user_login FROM ' . EHRM_STAFF . ' as s JOIN ' . EHRM_USER_TABLE . ' as ut ON ut.ID = s.user_id WHERE s.id=%d', $staff_id) );
             return $query;
+        }
+
+        //Delete the staff
+        public static function deleteStaff($id) {
+            global $wpdb;
+            return $wpdb->query('DELETE FROM ' . EHRM_STAFF . ' WHERE `id`=' . $id);
         }
 
         /**

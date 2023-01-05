@@ -80,6 +80,10 @@ class StaffAjaxActions {
 					
 					//$all_staffs = get_option( 'ehrm_staffs_data' );
 					$staff_data = EHRM_Helper::fetch_the_staff();
+					echo "<pre>"; 
+					print_r($staff_data);
+					echo "</pre>";
+					wp_die();
 					//if ( ! empty ( $all_staffs ) ) {
 						$counted_staff = count( $staff_data );
 	            		$sno = 1;
@@ -95,11 +99,11 @@ class StaffAjaxActions {
 	            	
 			                $html .= '<tr>
 					                	<td>'.esc_html( $sno ).'</td>
-					                  	<td>'.esc_html( $staff['fullname'] ).'</td>
-					                  	<td>'.esc_html( $staff['email'] ).'</td>
-					                  	<td>'.esc_html( $staff['phone'] ).'</td>
-					                  	<td>'.esc_html( $staff['shift_name'] . '( ' . date( EHRMHelperClass::get_time_format(), strtotime( $staff['shift_start'] ) ) . ' to ' . date( EHRMHelperClass::get_time_format(), strtotime( $staff['shift_end'] ) ) . ' )').'</td>
-					                  	<td>'.esc_html( $staff['desig_name'] ).'</td>';
+					                  	<td>'.esc_html( $staff_data->first_name ) . ' ' . esc_html( $staff_data->last_name ) .'</td>
+					                  	<td>'.esc_html( $staff_data->email ).'</td>
+					                  	<td>'.esc_html( $staff_data->phone_no ).'</td>
+					                  	<td>'.esc_html( $staff_data->shift_name . '( ' . date( EHRMHelperClass::get_time_format(), strtotime( $staff_data->shift_start ) ) . ' to ' . date( EHRMHelperClass::get_time_format(), strtotime( $staff_data->shift_end ) ) . ' )').'</td>
+					                  	<td>'.esc_html( $staff_data->desig_name ).'</td>';
 
 							$html .= '<td>';
 					        for ( $i = 0; $i < $leave_no; $i++ ) {
@@ -371,38 +375,42 @@ class StaffAjaxActions {
 
 		if ( isset ( $_POST['staff_key'] ) ) {
 			$staff_key = sanitize_text_field( $_POST['staff_key'] );
-			$staffs    = get_option( 'ehrm_staffs_data' );
+			$result    = EHRM_Helper::deleteStaff($staff_key);
+			//$staffs    = get_option( 'ehrm_staffs_data' );
+			$staffs	   = EHRM_Helper::fetch_the_staff();
 			$html      = '';
 
 			unset( $staffs[$staff_key] );
 
-			if ( update_option( 'ehrm_staffs_data', $staffs ) ) {
+			//if ( update_option( 'ehrm_staffs_data', $staffs ) ) {
+			if( $result == 1 ) {
 				
-				$all_staffs = get_option( 'ehrm_staffs_data' );
+				// $all_staffs = get_option( 'ehrm_staffs_data' );
+				$all_staffs = EHRM_Helper::fetch_the_staff();
 
 				if ( ! empty ( $all_staffs ) ) {
             		$sno = 1;
             		foreach ( $all_staffs as $key => $staff ) {
 
-            			$leave_name  = unserialize( $staff['leave_name'] );
-						$leave_value = unserialize( $staff['leave_value'] );
-						$leave_no    = sizeof( $leave_name );
+            			// $leave_name  = unserialize( $staff['leave_name'] );
+						// $leave_value = unserialize( $staff['leave_value'] );
+						// $leave_no    = sizeof( $leave_name );
             	
 		                $html .= '<tr>
 				                	<td>'.esc_html( $sno ).'</td>
-				                  	<td>'.esc_html( $staff['fullname'] ).'</td>
-				                  	<td>'.esc_html( $staff['email'] ).'</td>
-				                  	<td>'.esc_html( $staff['phone'] ).'</td>
-				                  	<td>'.esc_html( $staff['shift_name'] . '( ' . date( EHRMHelperClass::get_time_format(), strtotime( $staff['shift_start'] ) ) . ' to ' . date( EHRMHelperClass::get_time_format(), strtotime( $staff['shift_end'] ) ) . ' )').'</td>
-				                  	<td>'.esc_html( $staff['desig_name'] ).'</td>';
+				                  	<td>'.esc_html( $staff->fullname ).'</td>
+				                  	<td>'.esc_html( $staff->email ).'</td>
+				                  	<td>'.esc_html( $staff->phone ).'</td>
+				                  	<td>'.esc_html( $staff->shift_name . '( ' . date( EHRMHelperClass::get_time_format(), strtotime( $staff['shift_start'] ) ) . ' to ' . date( EHRMHelperClass::get_time_format(), strtotime( $staff['shift_end'] ) ) . ' )').'</td>
+				                  	<td>'.esc_html( $staff->desig_name ).'</td>';
 
 						$html .= '<td>';
-						for ($i = 0; $i < $leave_no; $i++) {
-							$html .= '<span>' . $leave_name[$i] . ' ( ' . $leave_value[$i] . ')</br></br></span>';
-						}
+						// for ($i = 0; $i < $leave_no; $i++) {
+						// 	$html .= '<span>' . $leave_name[$i] . ' ( ' . $leave_value[$i] . ')</br></br></span>';
+						// }
 						$html .= '</td>
-									<td>'.esc_html( $staff['salary'] ).'</td>
-				                  	<td>'.esc_html( $staff['status'] ).'</td>
+									<td>'.esc_html( $staff->salary ).'</td>
+				                  	<td>'.esc_html( $staff->status ).'</td>
 				                  	<td class="designation-action-tools">
 		                          		<ul class="designation-action-tools-ul">
 		                          			<li class="designation-action-tools-li">
