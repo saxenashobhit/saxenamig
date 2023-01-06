@@ -253,7 +253,7 @@ $save_settings = get_option( 'ehrm_settings_data' );
       <div class="col-lg-5 grid-margin stretch-card">
         <div class="card">
           <div class="card-body salary_status_ul">
-            <h4 class="card-title"><?php esc_html_e( 'Salary status', 'employee-&-hr-management' ); ?></h4>
+            <h4 class="card-title"><?php esc_html_e( 'Salary status99', 'employee-&-hr-management' ); ?></h4>
             <?php 
               if( $no_of_projects_completed > 0 ) {
                 ?>

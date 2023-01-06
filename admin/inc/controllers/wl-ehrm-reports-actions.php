@@ -31,7 +31,8 @@ class ReportAjaxAction {
             $staff_id     = sanitize_text_field( $_POST['staff_id'] );
             $month        = sanitize_text_field( $_POST['month'] );
             $type         = sanitize_text_field( $_POST['type'] );
-            $attendences  = get_option( 'ehrm_staff_attendence_data' );
+            // $attendences  = get_option( 'ehrm_staff_attendence_data' );
+            $attendence   = EHRM_Helper::get_attendence( $staff_id, $month, $type );
             $staffs_data  = get_option('ehrm_staffs_data');
             $save_setting = get_option( 'ehrm_settings_data' );
             $all_holidays = EHRMHelperClass::ehrm_all_holidays();
@@ -40,7 +41,7 @@ class ReportAjaxAction {
             $date_arr     = array();
             $off_days     = EHRMHelperClass::get_offdays();
             $user_role    = EHRMHelperClass::ehrm_get_current_user_roles();
-			$breaksdata    = get_option( 'ehrm_breakpoints' ); 
+			$breaksdata   = get_option( 'ehrm_breakpoints' ); 
 
             /** Staff's data **/
             if ( ! empty( $staffs_data ) ) {

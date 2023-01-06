@@ -338,6 +338,17 @@ if( !class_exists('EHRM_Helper') ) {
             ];
             $output = $wpdb->insert(EHRM_BREAK, $break_data);
             return $output;            
-        }        
+        } 
+        
+        /**
+         * @get the attendace data to generate the  report
+         * @staff id, month and type: absent days or present days
+         * @it will return an array of object
+         * EHRM_STAFF_ATTENDANCE
+         */
+        public static function get_attendance( $staffId, $month, $type ) {
+            global $wpdb;
+            $query = "";
+        }
     }    
 }
