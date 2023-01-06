@@ -215,7 +215,7 @@ add_action( 'wp_ajax_ehrm_delete_req_action', array( 'RequestsAjaxAction', 'dele
 
 /* Generate report */
 add_action( 'wp_ajax_nopriv_ehrm_get_reports_action', array( 'ReportAjaxAction', 'get_reports' ) );
-add_action( 'wp_ajax_ehrm_get_reports_action', array( 'ReportAjaxAction', 'get_reports' ) );
+add_action( 'wp_ajax_ehrm_get_reports_action', array( 'ReportAjaxAction', 'c' ) );
 
 /* Calculate salary */
 add_action( 'wp_ajax_nopriv_ehrm_show_salary_action', array( 'ReportAjaxAction', 'display_salary' ) );
